@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 10, 2019 at 08:15 PM
--- Server version: 10.3.15-MariaDB
--- PHP Version: 7.2.19
+-- Host: 127.0.0.1:3306
+-- Generation Time: Nov 05, 2021 at 07:16 PM
+-- Server version: 5.7.31
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,12 +27,14 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `updationDate` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updationDate` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
@@ -48,19 +49,21 @@ INSERT INTO `admin` (`id`, `username`, `password`, `updationDate`) VALUES
 -- Table structure for table `appointment`
 --
 
-CREATE TABLE `appointment` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `appointment`;
+CREATE TABLE IF NOT EXISTS `appointment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `doctorSpecialization` varchar(255) DEFAULT NULL,
   `doctorId` int(11) DEFAULT NULL,
   `userId` int(11) DEFAULT NULL,
   `consultancyFees` int(11) DEFAULT NULL,
   `appointmentDate` varchar(255) DEFAULT NULL,
   `appointmentTime` varchar(255) DEFAULT NULL,
-  `postingDate` timestamp NULL DEFAULT current_timestamp(),
+  `postingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `userStatus` int(11) DEFAULT NULL,
   `doctorStatus` int(11) DEFAULT NULL,
-  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `appointment`
@@ -77,18 +80,20 @@ INSERT INTO `appointment` (`id`, `doctorSpecialization`, `doctorId`, `userId`, `
 -- Table structure for table `doctors`
 --
 
-CREATE TABLE `doctors` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `doctors`;
+CREATE TABLE IF NOT EXISTS `doctors` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `specilization` varchar(255) DEFAULT NULL,
   `doctorName` varchar(255) DEFAULT NULL,
-  `address` longtext DEFAULT NULL,
+  `address` longtext,
   `docFees` varchar(255) DEFAULT NULL,
   `contactno` bigint(11) DEFAULT NULL,
   `docEmail` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `creationDate` timestamp NULL DEFAULT current_timestamp(),
-  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctors`
@@ -111,15 +116,24 @@ INSERT INTO `doctors` (`id`, `specilization`, `doctorName`, `address`, `docFees`
 -- Table structure for table `doctorslog`
 --
 
-CREATE TABLE `doctorslog` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `doctorslog`;
+CREATE TABLE IF NOT EXISTS `doctorslog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   `userip` binary(16) DEFAULT NULL,
-  `loginTime` timestamp NULL DEFAULT current_timestamp(),
+  `loginTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `logout` varchar(255) DEFAULT NULL,
-  `status` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `doctorslog`
+--
+
+INSERT INTO `doctorslog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logout`, `status`) VALUES
+(20, 7, 'test@demo.com', 0x3132372e302e302e3100000000000000, '2021-11-05 17:25:05', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -127,12 +141,14 @@ CREATE TABLE `doctorslog` (
 -- Table structure for table `doctorspecilization`
 --
 
-CREATE TABLE `doctorspecilization` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `doctorspecilization`;
+CREATE TABLE IF NOT EXISTS `doctorspecilization` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `specilization` varchar(255) DEFAULT NULL,
-  `creationDate` timestamp NULL DEFAULT current_timestamp(),
-  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctorspecilization`
@@ -154,20 +170,70 @@ INSERT INTO `doctorspecilization` (`id`, `specilization`, `creationDate`, `updat
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `nurse`
+--
+
+DROP TABLE IF EXISTS `nurse`;
+CREATE TABLE IF NOT EXISTS `nurse` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nurse_name` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `pass` varchar(65) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nurse`
+--
+
+INSERT INTO `nurse` (`id`, `nurse_name`, `email`, `pass`) VALUES
+(1, 'test', 'test', 'test');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `receptionist`
+--
+
+DROP TABLE IF EXISTS `receptionist`;
+CREATE TABLE IF NOT EXISTS `receptionist` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `RecName` varchar(30) NOT NULL,
+  `address` varchar(30) NOT NULL,
+  `contact` int(11) NOT NULL,
+  `Recemail` varchar(30) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `creationdate` timestamp(6) NOT NULL,
+  `updatedate` timestamp(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `receptionist`
+--
+
+INSERT INTO `receptionist` (`id`, `RecName`, `address`, `contact`, `Recemail`, `password`, `creationdate`, `updatedate`) VALUES
+(1, 'Duncan', '005 NAIROBI', 714757251, 'mulongo25@gmail.com', '7492e2f3053c854d4e8f7e1ca149568c', '2021-11-17 14:55:52.000000', '2021-11-05 14:55:52.000000');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tblcontactus`
 --
 
-CREATE TABLE `tblcontactus` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tblcontactus`;
+CREATE TABLE IF NOT EXISTS `tblcontactus` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fullname` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `contactno` bigint(12) DEFAULT NULL,
-  `message` mediumtext DEFAULT NULL,
-  `PostingDate` timestamp NULL DEFAULT current_timestamp(),
-  `AdminRemark` mediumtext DEFAULT NULL,
-  `LastupdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
-  `IsRead` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `message` mediumtext,
+  `PostingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `AdminRemark` mediumtext,
+  `LastupdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `IsRead` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblcontactus`
@@ -184,16 +250,18 @@ INSERT INTO `tblcontactus` (`id`, `fullname`, `email`, `contactno`, `message`, `
 -- Table structure for table `tblmedicalhistory`
 --
 
-CREATE TABLE `tblmedicalhistory` (
-  `ID` int(10) NOT NULL,
+DROP TABLE IF EXISTS `tblmedicalhistory`;
+CREATE TABLE IF NOT EXISTS `tblmedicalhistory` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
   `PatientID` int(10) DEFAULT NULL,
   `BloodPressure` varchar(200) DEFAULT NULL,
   `BloodSugar` varchar(200) NOT NULL,
   `Weight` varchar(100) DEFAULT NULL,
   `Temperature` varchar(200) DEFAULT NULL,
-  `MedicalPres` mediumtext DEFAULT NULL,
-  `CreationDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `MedicalPres` mediumtext,
+  `CreationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblmedicalhistory`
@@ -213,30 +281,35 @@ INSERT INTO `tblmedicalhistory` (`ID`, `PatientID`, `BloodPressure`, `BloodSugar
 -- Table structure for table `tblpatient`
 --
 
-CREATE TABLE `tblpatient` (
-  `ID` int(10) NOT NULL,
+DROP TABLE IF EXISTS `tblpatient`;
+CREATE TABLE IF NOT EXISTS `tblpatient` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
   `Docid` int(10) DEFAULT NULL,
   `PatientName` varchar(200) DEFAULT NULL,
   `PatientContno` bigint(10) DEFAULT NULL,
   `PatientEmail` varchar(200) DEFAULT NULL,
   `PatientGender` varchar(50) DEFAULT NULL,
-  `PatientAdd` mediumtext DEFAULT NULL,
+  `PatientAdd` mediumtext,
   `PatientAge` int(10) DEFAULT NULL,
-  `PatientMedhis` mediumtext DEFAULT NULL,
-  `CreationDate` timestamp NULL DEFAULT current_timestamp(),
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `PatientMedhis` mediumtext,
+  `CreationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `blood_sugar` varchar(30) DEFAULT 'No details yet',
+  `temperature` varchar(11) DEFAULT NULL,
+  `blood_pressure` varchar(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblpatient`
 --
 
-INSERT INTO `tblpatient` (`ID`, `Docid`, `PatientName`, `PatientContno`, `PatientEmail`, `PatientGender`, `PatientAdd`, `PatientAge`, `PatientMedhis`, `CreationDate`, `UpdationDate`) VALUES
-(1, 1, 'Manisha Jha', 4558968789, 'test@gmail.com', 'Female', '\"\"J&K Block J-127, Laxmi Nagar New Delhi', 26, 'She is diabetic patient', '2019-11-04 21:38:06', '2019-11-06 06:48:05'),
-(2, 5, 'Raghu Yadav', 9797977979, 'raghu@gmail.com', 'Male', 'ABC Apartment Mayur Vihar Ph-1 New Delhi', 39, 'No', '2019-11-05 10:40:13', '2019-11-05 11:53:45'),
-(3, 7, 'Mansi', 9878978798, 'jk@gmail.com', 'Female', '\"fdghyj', 46, 'No', '2019-11-05 10:49:41', '2019-11-05 11:58:59'),
-(4, 7, 'Manav Sharma', 9888988989, 'sharma@gmail.com', 'Male', 'L-56,Ashok Nagar New Delhi-110096', 45, 'He is long suffered by asthma', '2019-11-06 14:33:54', '2019-11-06 14:34:31'),
-(5, 9, 'John', 1234567890, 'john@test.com', 'male', 'Test ', 25, 'THis is sample text for testing.', '2019-11-10 18:49:24', NULL);
+INSERT INTO `tblpatient` (`ID`, `Docid`, `PatientName`, `PatientContno`, `PatientEmail`, `PatientGender`, `PatientAdd`, `PatientAge`, `PatientMedhis`, `CreationDate`, `UpdationDate`, `blood_sugar`, `temperature`, `blood_pressure`) VALUES
+(1, 1, 'Manisha Jha', 4558968789, 'test@gmail.com', 'Female', '\"\"J&K Block J-127, Laxmi Nagar New Delhi', 26, 'She is diabetic patient', '2019-11-04 21:38:06', '2019-11-06 06:48:05', NULL, NULL, NULL),
+(2, 5, 'Raghu Yadav', 9797977979, 'raghu@gmail.com', 'Male', 'ABC Apartment Mayur Vihar Ph-1 New Delhi', 39, 'No', '2019-11-05 10:40:13', '2019-11-05 11:53:45', NULL, NULL, NULL),
+(3, 7, 'Mansi', 9878978798, 'jk@gmail.com', 'Female', '\"fdghyj', 46, 'No', '2019-11-05 10:49:41', '2019-11-05 11:58:59', NULL, NULL, NULL),
+(4, 7, 'Manav Sharma', 9888988989, 'sharma@gmail.com', 'Male', 'L-56,Ashok Nagar New Delhi-110096', 45, 'He is long suffered by asthma', '2019-11-06 14:33:54', '2019-11-06 14:34:31', NULL, NULL, NULL),
+(5, 9, 'John', 1234567890, 'john@test.com', 'male', 'Test ', 25, 'THis is sample text for testing.', '2019-11-10 18:49:24', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -244,15 +317,17 @@ INSERT INTO `tblpatient` (`ID`, `Docid`, `PatientName`, `PatientContno`, `Patien
 -- Table structure for table `userlog`
 --
 
-CREATE TABLE `userlog` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `userlog`;
+CREATE TABLE IF NOT EXISTS `userlog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   `userip` binary(16) DEFAULT NULL,
-  `loginTime` timestamp NULL DEFAULT current_timestamp(),
+  `loginTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `logout` varchar(255) DEFAULT NULL,
-  `status` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -260,17 +335,20 @@ CREATE TABLE `userlog` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fullName` varchar(255) DEFAULT NULL,
-  `address` longtext DEFAULT NULL,
+  `address` longtext,
   `city` varchar(255) DEFAULT NULL,
   `gender` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `regDate` timestamp NULL DEFAULT current_timestamp(),
-  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `regDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -283,135 +361,6 @@ INSERT INTO `users` (`id`, `fullName`, `address`, `city`, `gender`, `email`, `pa
 (5, 'Amit kumar', 'New Delhi India', 'Delhi', 'male', 'amit12@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 08:00:26', '0000-00-00 00:00:00'),
 (6, 'Test user', 'New Delhi', 'Delhi', 'male', 'tetuser@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2019-06-23 18:24:53', '2019-06-23 18:36:09'),
 (7, 'John', 'USA', 'Newyork', 'male', 'john@test.com', 'f925916e2754e5e03f75dd58a5733251', '2019-11-10 18:40:21', '2019-11-10 18:40:51');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `appointment`
---
-ALTER TABLE `appointment`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `doctors`
---
-ALTER TABLE `doctors`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `doctorslog`
---
-ALTER TABLE `doctorslog`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `doctorspecilization`
---
-ALTER TABLE `doctorspecilization`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tblcontactus`
---
-ALTER TABLE `tblcontactus`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tblmedicalhistory`
---
-ALTER TABLE `tblmedicalhistory`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `tblpatient`
---
-ALTER TABLE `tblpatient`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `userlog`
---
-ALTER TABLE `userlog`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `email` (`email`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `appointment`
---
-ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `doctors`
---
-ALTER TABLE `doctors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `doctorslog`
---
-ALTER TABLE `doctorslog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT for table `doctorspecilization`
---
-ALTER TABLE `doctorspecilization`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `tblcontactus`
---
-ALTER TABLE `tblcontactus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `tblmedicalhistory`
---
-ALTER TABLE `tblmedicalhistory`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `tblpatient`
---
-ALTER TABLE `tblpatient`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `userlog`
---
-ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
