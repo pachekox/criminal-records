@@ -9,7 +9,7 @@ check_login();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Admin | View Patients</title>
+		<title>Admin | Criminals Report</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -37,14 +37,14 @@ check_login();
 <section id="page-title">
 <div class="row">
 <div class="col-sm-8">
-<h1 class="mainTitle">Admin | View Patients</h1>
+<h1 class="mainTitle">Admin | View Criminal</h1>
 </div>
 <ol class="breadcrumb">
 <li>
 <span>Admin</span>
 </li>
 <li class="active">
-<span>View Patients</span>
+<span>View Criminal</span>
 </li>
 </ol>
 </div>
@@ -64,11 +64,11 @@ $tdate=$_POST['todate'];
 <thead>
 <tr>
 <th class="center">#</th>
-<th>Patient Name</th>
-<th>Patient Contact Number</th>
-<th>Patient Gender </th>
-<th>Creation Date </th>
-<th>Updation Date </th>
+<th>Criminal Name</th>
+<th>Criminal Contact Number</th>
+<th>Criminal Gender </th>
+<th>Date added</th>
+<th>updated on </th>
 <th>Action</th>
 </tr>
 </thead>

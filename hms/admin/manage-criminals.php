@@ -71,7 +71,7 @@ if(isset($_GET['del']))
 <th>Contact Number</th>
 <th>Criminal Gender </th>
 <th> Date Added </th>
-<th>Updation Date </th>
+<th>Date updated </th>
 <th>ID No.</th>
 <th>Action</th>
 </tr>
@@ -95,11 +95,11 @@ while($row=mysqli_fetch_array($sql))
 </td>
 <td>
 
-<a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
+<a href="view-criminals.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
 
 							
 													
-<a href="manage-patient.php?id=<?php echo $row['ID']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+<a href="manage-criminals.php?id=<?php echo $row['ID']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 												
 
 </td>

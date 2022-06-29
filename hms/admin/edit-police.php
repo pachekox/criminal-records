@@ -24,7 +24,7 @@ $msg="Doctor Details updated Successfully";
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Admin | Edit Doctor Details</title>
+		<title>Admin | Edit Police Officer Details</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -58,14 +58,14 @@ $msg="Doctor Details updated Successfully";
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Admin | Edit Doctor Details</h1>
+									<h1 class="mainTitle">Admin | Edit Police Officer Details</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
 										<span>Admin</span>
 									</li>
 									<li class="active">
-										<span>Edit Doctor Details</span>
+										<span>Edit Police Officer Details</span>
 									</li>
 								</ol>
 							</div>
@@ -81,7 +81,7 @@ $msg="Doctor Details updated Successfully";
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
-													<h5 class="panel-title">Edit Doctor info</h5>
+													<h5 class="panel-title">Edit Police Officer info</h5>
 												</div>
 												<div class="panel-body">
 									<?php $sql=mysqli_query($con,"select * from doctors where id='$did'");
@@ -97,7 +97,7 @@ while($data=mysqli_fetch_array($sql))
 													<form role="form" name="adddoc" method="post" onSubmit="return valid();">
 														<div class="form-group">
 															<label for="DoctorSpecialization">
-																Doctor Specialization
+																Police Officer Specialization
 															</label>
 							<select name="Doctorspecialization" class="form-control" required="required">
 					<option value="<?php echo htmlentities($data['specilization']);?>">
@@ -116,7 +116,7 @@ while($row=mysqli_fetch_array($ret))
 
 <div class="form-group">
 															<label for="doctorname">
-																 Doctor Name
+																 Police Officer Name
 															</label>
 	<input type="text" name="docname" class="form-control" value="<?php echo htmlentities($data['doctorName']);?>" >
 														</div>
@@ -124,27 +124,22 @@ while($row=mysqli_fetch_array($ret))
 
 <div class="form-group">
 															<label for="address">
-																 Doctor Clinic Address
+																 Police Officer Address
 															</label>
 					<textarea name="clinicaddress" class="form-control"><?php echo htmlentities($data['address']);?></textarea>
 														</div>
-<div class="form-group">
-															<label for="fess">
-																 Doctor Consultancy Fees
-															</label>
-		<input type="text" name="docfees" class="form-control" required="required"  value="<?php echo htmlentities($data['docFees']);?>" >
-														</div>
+
 	
 <div class="form-group">
 									<label for="fess">
-																 Doctor Contact no
+																 Police Officer Contact no
 															</label>
 					<input type="text" name="doccontact" class="form-control" required="required"  value="<?php echo htmlentities($data['contactno']);?>">
 														</div>
 
 <div class="form-group">
 									<label for="fess">
-																 Doctor Email
+																 Police Officer Email
 															</label>
 					<input type="email" name="docemail" class="form-control"  readonly="readonly"  value="<?php echo htmlentities($data['docEmail']);?>">
 														</div>
@@ -176,12 +171,6 @@ while($row=mysqli_fetch_array($ret))
 							</div>
 						</div>
 						<!-- end: BASIC EXAMPLE -->
-			
-					
-					
-						
-						
-					
 						<!-- end: SELECT BOXES -->
 						
 					</div>
@@ -193,7 +182,7 @@ while($row=mysqli_fetch_array($ret))
 		
 			<!-- start: SETTINGS -->
 	<?php include('include/setting.php');?>
-			<>
+			
 			<!-- end: SETTINGS -->
 		</div>
 		<!-- start: MAIN JAVASCRIPTS -->

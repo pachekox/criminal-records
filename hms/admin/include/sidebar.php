@@ -32,11 +32,11 @@
 									</div>
 								</a>
 								<ul class="sub-menu">
-									<li>
+									<!-- <li>
 										<a href="police-title.php">
 											<span class="title"> Rank </span>
 										</a>
-									</li>
+									</li> -->
 									<li>
 										<a href="add-police.php">
 											<span class="title"> Add Police</span>
