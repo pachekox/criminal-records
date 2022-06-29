@@ -3,18 +3,16 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
 -- Generation Time: Nov 05, 2021 at 06:40 PM
 -- Server version: 8.0.26
-=======
+
 -- Generation Time: Nov 05, 2021 at 07:16 PM
 -- Server version: 5.7.31
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
+
 -- Generation Time: Nov 05, 2021 at 06:40 PM
 -- Server version: 8.0.26
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
 -- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -39,15 +37,9 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
   `id` int NOT NULL AUTO_INCREMENT,
-=======
-  `id` int(11) NOT NULL AUTO_INCREMENT,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `id` int NOT NULL AUTO_INCREMENT,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `updationDate` varchar(255) NOT NULL,
@@ -69,15 +61,10 @@ INSERT INTO `admin` (`id`, `username`, `password`, `updationDate`) VALUES
 
 DROP TABLE IF EXISTS `appointment`;
 CREATE TABLE IF NOT EXISTS `appointment` (
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
+
   `id` int NOT NULL AUTO_INCREMENT,
-=======
-  `id` int(11) NOT NULL AUTO_INCREMENT,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `id` int NOT NULL AUTO_INCREMENT,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   `doctorSpecialization` varchar(255) DEFAULT NULL,
   `doctorId` int DEFAULT NULL,
   `userId` int DEFAULT NULL,
@@ -85,18 +72,10 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   `appointmentDate` varchar(255) DEFAULT NULL,
   `appointmentTime` varchar(255) DEFAULT NULL,
   `postingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
-  `userStatus` int DEFAULT NULL,
-  `doctorStatus` int DEFAULT NULL,
-=======
   `userStatus` int(11) DEFAULT NULL,
   `doctorStatus` int(11) DEFAULT NULL,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `userStatus` int DEFAULT NULL,
-  `doctorStatus` int DEFAULT NULL,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
+
   `updationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
@@ -118,15 +97,8 @@ INSERT INTO `appointment` (`id`, `doctorSpecialization`, `doctorId`, `userId`, `
 
 DROP TABLE IF EXISTS `doctors`;
 CREATE TABLE IF NOT EXISTS `doctors` (
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
   `id` int NOT NULL AUTO_INCREMENT,
-=======
-  `id` int(11) NOT NULL AUTO_INCREMENT,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `id` int NOT NULL AUTO_INCREMENT,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
   `specilization` varchar(255) DEFAULT NULL,
   `doctorName` varchar(255) DEFAULT NULL,
   `address` longtext,
@@ -137,15 +109,9 @@ CREATE TABLE IF NOT EXISTS `doctors` (
   `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
-=======
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
 
 --
 -- Dumping data for table `doctors`
@@ -171,48 +137,22 @@ INSERT INTO `doctors` (`id`, `specilization`, `doctorName`, `address`, `docFees`
 
 DROP TABLE IF EXISTS `doctorslog`;
 CREATE TABLE IF NOT EXISTS `doctorslog` (
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
+
   `id` int NOT NULL AUTO_INCREMENT,
   `uid` int DEFAULT NULL,
-=======
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) DEFAULT NULL,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `id` int NOT NULL AUTO_INCREMENT,
-  `uid` int DEFAULT NULL,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   `username` varchar(255) DEFAULT NULL,
   `userip` binary(16) DEFAULT NULL,
   `loginTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `logout` varchar(255) DEFAULT NULL,
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
   `status` int DEFAULT NULL,
-=======
-  `status` int(11) DEFAULT NULL,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `status` int DEFAULT NULL,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `doctorslog`
---
 
-INSERT INTO `doctorslog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logout`, `status`) VALUES
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
-(20, 10, 'mulongo@gmail.com', 0x3a3a3100000000000000000000000000, '2021-11-05 17:32:07', NULL, 1);
-=======
-(20, 7, 'test@demo.com', 0x3132372e302e302e3100000000000000, '2021-11-05 17:25:05', NULL, 1);
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-(20, 10, 'mulongo@gmail.com', 0x3a3a3100000000000000000000000000, '2021-11-05 17:32:07', NULL, 1);
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
 
 -- --------------------------------------------------------
 
@@ -222,15 +162,9 @@ INSERT INTO `doctorslog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logou
 
 DROP TABLE IF EXISTS `doctorspecilization`;
 CREATE TABLE IF NOT EXISTS `doctorspecilization` (
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
   `id` int NOT NULL AUTO_INCREMENT,
-=======
-  `id` int(11) NOT NULL AUTO_INCREMENT,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `id` int NOT NULL AUTO_INCREMENT,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   `specilization` varchar(255) DEFAULT NULL,
   `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
@@ -257,9 +191,7 @@ INSERT INTO `doctorspecilization` (`id`, `specilization`, `creationDate`, `updat
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
-=======
+
 -- Table structure for table `nurse`
 --
 
@@ -282,16 +214,13 @@ INSERT INTO `nurse` (`id`, `nurse_name`, `email`, `pass`) VALUES
 -- --------------------------------------------------------
 
 --
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
 -- Table structure for table `receptionist`
 --
 
 DROP TABLE IF EXISTS `receptionist`;
 CREATE TABLE IF NOT EXISTS `receptionist` (
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
   `id` int UNSIGNED NOT NULL,
   `RecName` varchar(30) NOT NULL,
   `address` varchar(30) NOT NULL,
@@ -301,12 +230,9 @@ CREATE TABLE IF NOT EXISTS `receptionist` (
   `creationdate` timestamp(6) NOT NULL,
   `updatedate` timestamp(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-=======
-  `id` int(10) UNSIGNED NOT NULL,
-=======
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8;
   `id` int UNSIGNED NOT NULL,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   `RecName` varchar(30) NOT NULL,
   `address` varchar(30) NOT NULL,
   `contact` int NOT NULL,
@@ -315,22 +241,16 @@ CREATE TABLE IF NOT EXISTS `receptionist` (
   `creationdate` timestamp(6) NOT NULL,
   `updatedate` timestamp(6) NOT NULL,
   PRIMARY KEY (`id`)
-<<<<<<< HEAD:SQL File/hms (1).sql
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 
 --
 -- Dumping data for table `receptionist`
 --
 
 INSERT INTO `receptionist` (`id`, `RecName`, `address`, `contact`, `Recemail`, `password`, `creationdate`, `updatedate`) VALUES
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
-=======
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
 (1, 'Duncan', '005 NAIROBI', 714757251, 'mulongo25@gmail.com', '7492e2f3053c854d4e8f7e1ca149568c', '2021-11-17 17:55:52.000000', '2021-11-05 17:55:52.000000');
 
 -- --------------------------------------------------------
@@ -349,15 +269,8 @@ CREATE TABLE IF NOT EXISTS `reclog` (
   `logout` varchar(15) DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-<<<<<<< HEAD:SQL File/hms (1).sql
-=======
-(1, 'Duncan', '005 NAIROBI', 714757251, 'mulongo25@gmail.com', '7492e2f3053c854d4e8f7e1ca149568c', '2021-11-17 14:55:52.000000', '2021-11-05 14:55:52.000000');
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- --------------------------------------------------------
 
 --
 -- Table structure for table `tblcontactus`
@@ -365,37 +278,19 @@ CREATE TABLE IF NOT EXISTS `reclog` (
 
 DROP TABLE IF EXISTS `tblcontactus`;
 CREATE TABLE IF NOT EXISTS `tblcontactus` (
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
   `id` int NOT NULL AUTO_INCREMENT,
   `fullname` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `contactno` bigint DEFAULT NULL,
-=======
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fullname` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `contactno` bigint(12) DEFAULT NULL,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `id` int NOT NULL AUTO_INCREMENT,
-  `fullname` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `contactno` bigint DEFAULT NULL,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   `message` mediumtext,
   `PostingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `AdminRemark` mediumtext,
   `LastupdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
   `IsRead` int DEFAULT NULL,
-=======
-  `IsRead` int(11) DEFAULT NULL,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `IsRead` int DEFAULT NULL,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -416,18 +311,10 @@ INSERT INTO `tblcontactus` (`id`, `fullname`, `email`, `contactno`, `message`, `
 
 DROP TABLE IF EXISTS `tblmedicalhistory`;
 CREATE TABLE IF NOT EXISTS `tblmedicalhistory` (
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `PatientID` int DEFAULT NULL,
-=======
+
   `ID` int(10) NOT NULL AUTO_INCREMENT,
   `PatientID` int(10) DEFAULT NULL,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `PatientID` int DEFAULT NULL,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   `BloodPressure` varchar(200) DEFAULT NULL,
   `BloodSugar` varchar(200) NOT NULL,
   `Weight` varchar(100) DEFAULT NULL,
@@ -457,55 +344,38 @@ INSERT INTO `tblmedicalhistory` (`ID`, `PatientID`, `BloodPressure`, `BloodSugar
 
 DROP TABLE IF EXISTS `tblpatient`;
 CREATE TABLE IF NOT EXISTS `tblpatient` (
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
   `ID` int NOT NULL AUTO_INCREMENT,
   `Docid` int DEFAULT NULL,
-=======
-  `ID` int(10) NOT NULL AUTO_INCREMENT,
-  `Docid` int(10) DEFAULT NULL,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `Docid` int DEFAULT NULL,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   `PatientName` varchar(200) DEFAULT NULL,
   `PatientContno` bigint DEFAULT NULL,
   `PatientEmail` varchar(200) DEFAULT NULL,
   `PatientGender` varchar(50) DEFAULT NULL,
   `PatientAdd` mediumtext,
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
   `PatientAge` int DEFAULT NULL,
   `PatientMedhis` mediumtext,
   `CreationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-=======
-  `PatientAge` int(10) DEFAULT NULL,
-=======
+
   `PatientAge` int DEFAULT NULL,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   `PatientMedhis` mediumtext,
   `CreationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-<<<<<<< HEAD:SQL File/hms (1).sql
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
+
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
 
 --
 -- Dumping data for table `tblpatient`
 --
 
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
-=======
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
 INSERT INTO `tblpatient` (`ID`, `Docid`, `PatientName`, `PatientContno`, `PatientEmail`, `PatientGender`, `PatientAdd`, `PatientAge`, `PatientMedhis`, `CreationDate`, `UpdationDate`) VALUES
 (1, 1, 'Manisha Jha', 4558968789, 'test@gmail.com', 'Female', '\"\"J&K Block J-127, Laxmi Nagar New Delhi', 26, 'She is diabetic patient', '2019-11-04 21:38:06', '2019-11-06 06:48:05'),
 (2, 5, 'Raghu Yadav', 9797977979, 'raghu@gmail.com', 'Male', 'ABC Apartment Mayur Vihar Ph-1 New Delhi', 39, 'No', '2019-11-05 10:40:13', '2019-11-05 11:53:45'),
@@ -513,17 +383,7 @@ INSERT INTO `tblpatient` (`ID`, `Docid`, `PatientName`, `PatientContno`, `Patien
 (4, 7, 'Manav Sharma', 9888988989, 'sharma@gmail.com', 'Male', 'L-56,Ashok Nagar New Delhi-110096', 45, 'He is long suffered by asthma', '2019-11-06 14:33:54', '2019-11-06 14:34:31'),
 (5, 9, 'John', 1234567890, 'john@test.com', 'male', 'Test ', 25, 'THis is sample text for testing.', '2019-11-10 18:49:24', NULL),
 (6, 1, 'Prudence', 9292929, 'prudence2@gmail.com', 'male', '00100 NAIROBI', 25, 'Flue', '2021-11-05 18:38:34', NULL);
-<<<<<<< HEAD:SQL File/hms (1).sql
-=======
-INSERT INTO `tblpatient` (`ID`, `Docid`, `PatientName`, `PatientContno`, `PatientEmail`, `PatientGender`, `PatientAdd`, `PatientAge`, `PatientMedhis`, `CreationDate`, `UpdationDate`, `blood_sugar`, `temperature`, `blood_pressure`) VALUES
-(1, 1, 'Manisha Jha', 4558968789, 'test@gmail.com', 'Female', '\"\"J&K Block J-127, Laxmi Nagar New Delhi', 26, 'She is diabetic patient', '2019-11-04 21:38:06', '2019-11-06 06:48:05', NULL, NULL, NULL),
-(2, 5, 'Raghu Yadav', 9797977979, 'raghu@gmail.com', 'Male', 'ABC Apartment Mayur Vihar Ph-1 New Delhi', 39, 'No', '2019-11-05 10:40:13', '2019-11-05 11:53:45', NULL, NULL, NULL),
-(3, 7, 'Mansi', 9878978798, 'jk@gmail.com', 'Female', '\"fdghyj', 46, 'No', '2019-11-05 10:49:41', '2019-11-05 11:58:59', NULL, NULL, NULL),
-(4, 7, 'Manav Sharma', 9888988989, 'sharma@gmail.com', 'Male', 'L-56,Ashok Nagar New Delhi-110096', 45, 'He is long suffered by asthma', '2019-11-06 14:33:54', '2019-11-06 14:34:31', NULL, NULL, NULL),
-(5, 9, 'John', 1234567890, 'john@test.com', 'male', 'Test ', 25, 'THis is sample text for testing.', '2019-11-10 18:49:24', NULL, NULL, NULL, NULL);
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
 
 -- --------------------------------------------------------
 
@@ -533,31 +393,17 @@ INSERT INTO `tblpatient` (`ID`, `Docid`, `PatientName`, `PatientContno`, `Patien
 
 DROP TABLE IF EXISTS `userlog`;
 CREATE TABLE IF NOT EXISTS `userlog` (
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
   `id` int NOT NULL AUTO_INCREMENT,
   `uid` int DEFAULT NULL,
-=======
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) DEFAULT NULL,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `id` int NOT NULL AUTO_INCREMENT,
-  `uid` int DEFAULT NULL,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   `username` varchar(255) DEFAULT NULL,
   `userip` binary(16) DEFAULT NULL,
   `loginTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `logout` varchar(255) DEFAULT NULL,
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
   `status` int DEFAULT NULL,
-=======
-  `status` int(11) DEFAULT NULL,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `status` int DEFAULT NULL,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
@@ -569,15 +415,9 @@ CREATE TABLE IF NOT EXISTS `userlog` (
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-<<<<<<< HEAD:SQL File/hms (1).sql
-<<<<<<< HEAD:SQL File/hms.sql
+
   `id` int NOT NULL AUTO_INCREMENT,
-=======
-  `id` int(11) NOT NULL AUTO_INCREMENT,
->>>>>>> 5a4561f20e52838f38c7ca78dbc6acbece63b42b:SQL File/hms (1).sql
-=======
-  `id` int NOT NULL AUTO_INCREMENT,
->>>>>>> 16f68b034c23c7a7dd66d89a8051459c5c59c5bd:SQL File/hms.sql
+
   `fullName` varchar(255) DEFAULT NULL,
   `address` longtext,
   `city` varchar(255) DEFAULT NULL,
