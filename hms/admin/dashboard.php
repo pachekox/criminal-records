@@ -83,8 +83,8 @@ $num_rows = mysqli_num_rows($result);
 											<h2 class="StepTitle">Manage Police</h2>
 										
 											<p class="cl-effect-1">
-												<a href="manage-doctors.php">
-												<?php $result1 = mysqli_query($con,"SELECT * FROM doctors ");
+												<a href="manage-police.php">
+												<?php $result1 = mysqli_query($con,"SELECT * FROM police ");
 $num_rows1 = mysqli_num_rows($result1);
 {
 ?>
@@ -104,8 +104,8 @@ $num_rows1 = mysqli_num_rows($result1);
 											<h2 class="StepTitle">Manage Criminals</h2>
 											
 											<p class="links cl-effect-1">
-												<a href="manage-patient.php">
-											<?php $result = mysqli_query($con,"SELECT * FROM tblpatient ");
+												<a href="manage-criminal.php">
+											<?php $result = mysqli_query($con,"SELECT * FROM tblcriminal ");
 											$num_rows = mysqli_num_rows($result);
 											{
 											?>
