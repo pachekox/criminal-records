@@ -76,10 +76,10 @@ $sdata=$_POST['searchdata'];
 <thead>
 <tr>
 <th class="center">#</th>
-<th>Patient Name</th>
-<th>Patient Contact Number</th>
+<th>criminal Name</th>
+<th>criminal Contact Number</th>
 <th>National ID No.</th>
-<th>Patient Gender </th>
+<th>criminal Gender </th>
 <th>Creation Date </th>
 <th>Updation Date </th>
 <th>Action</th>
@@ -88,7 +88,7 @@ $sdata=$_POST['searchdata'];
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"select * from tblpatient where IDNumber like '%$sdata%' || PatientContno like '%$sdata%'");
+$sql=mysqli_query($con,"select * from tblcriminal where IDNumber like '%$sdata%' || criminalContno like '%$sdata%'");
 $num=mysqli_num_rows($sql);
 if($num>0){
 $cnt=1;
@@ -97,16 +97,16 @@ while($row=mysqli_fetch_array($sql))
 ?>
 <tr>
 <td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td><?php echo $row['PatientContno'];?></td>
+<td class="hidden-xs"><?php echo $row['criminalName'];?></td>
+<td><?php echo $row['criminalContno'];?></td>
 <td><?php echo $row['IDNumber'];?></td>
-<td><?php echo $row['PatientGender'];?></td>
+<td><?php echo $row['criminalGender'];?></td>
 <td><?php echo $row['CreationDate'];?></td>
 <td><?php echo $row['UpdationDate'];?>
 </td>
 <td>
 
-<a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
+<a href="view-criminal.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
 
 </td>
 </tr>

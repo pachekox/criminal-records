@@ -8,7 +8,7 @@ check_login();
 
 if(isset($_GET['del']))
 		  {
-		          mysqli_query($con,"delete from doctors where id = '".$_GET['id']."'");
+		          mysqli_query($con,"delete from police where id = '".$_GET['id']."'");
                   $_SESSION['msg']="data deleted !!";
 		  }
 ?>
@@ -81,7 +81,7 @@ if(isset($_GET['del']))
 										</thead>
 										<tbody>
 <?php
-$sql=mysqli_query($con,"select * from doctors");
+$sql=mysqli_query($con,"select * from police");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
@@ -90,7 +90,7 @@ while($row=mysqli_fetch_array($sql))
 											<tr>
 												<td class="center"><?php echo $cnt;?>.</td>
 												<td class="hidden-xs"><?php echo $row['specilization'];?></td>
-												<td><?php echo $row['doctorName'];?></td>
+												<td><?php echo $row['policeName'];?></td>
 												<td><?php echo $row['creationDate'];?>
 												</td>
 												

@@ -6,18 +6,18 @@ include('include/checklogin.php');
 check_login();
 
 if(isset($_POST['submit']))
-{	$docspecialization=$_POST['Doctorspecialization'];
+{	$docspecialization=$_POST['policepecialization'];
 $docname=$_POST['docname'];
 $docaddress=$_POST['clinicaddress'];
 $docfees=$_POST['docfees'];
 $doccontactno=$_POST['doccontact'];
 $docemail=$_POST['docemail'];
 $password=md5($_POST['npass']);
-$sql=mysqli_query($con,"insert into doctors(specilization,doctorName,address,docFees,contactno,docEmail,password) values('$docspecialization','$docname','$docaddress','$docfees','$doccontactno','$docemail','$password')");
+$sql=mysqli_query($con,"insert into police(specilization,policeName,address,docFees,contactno,docEmail,password) values('$docspecialization','$docname','$docaddress','$docfees','$doccontactno','$docemail','$password')");
 if($sql)
 {
-echo "<script>alert('Doctor info added Successfully');</script>";
-echo "<script>window.location.href ='manage-doctors.php'</script>";
+echo "<script>alert('police info added Successfully');</script>";
+echo "<script>window.location.href ='manage-police.php'</script>";
 
 }
 }
@@ -113,12 +113,12 @@ error:function (){}
 									
 													<form role="form" name="adddoc" method="post" onSubmit="return valid();">
 														<div class="form-group">
-															<label for="DoctorSpecialization">
+															<label for="policepecialization">
 																Police Officer Specialization
 															</label>
-							<select name="Doctorspecialization" class="form-control" required="true">
+							<select name="policepecialization" class="form-control" required="true">
 																<option value="">Select Specialization</option>
-<?php $ret=mysqli_query($con,"select * from doctorspecilization");
+<?php $ret=mysqli_query($con,"select * from policepecilization");
 while($row=mysqli_fetch_array($ret))
 {
 ?>
@@ -131,10 +131,10 @@ while($row=mysqli_fetch_array($ret))
 														</div>
 
 <div class="form-group">
-															<label for="doctorname">
+															<label for="policename">
 																 Police Officer Name
 															</label>
-					<input type="text" name="docname" class="form-control"  placeholder="Enter Doctor Name" required="true">
+					<input type="text" name="docname" class="form-control"  placeholder="Enter police Name" required="true">
 														</div>
 
 

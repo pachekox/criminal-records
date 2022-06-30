@@ -1,13 +1,13 @@
 <?php
 session_start();
-error_reporting(0);
+// error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
 
 if(isset($_GET['del']))
 		  {
-		          mysqli_query($con,"delete from tblpatient where id = '".$_GET['id']."'");
+		          mysqli_query($con,"delete from tblcriminal where id = '".$_GET['id']."'");
                   $_SESSION['msg']="data deleted !!";
 		  }
 ?>
@@ -79,16 +79,16 @@ if(isset($_GET['del']))
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"select * from tblpatient");
+$sql=mysqli_query($con,"select * from tblcriminal");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
 ?>
 <tr>
 <td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td><?php echo $row['PatientContno'];?></td>
-<td><?php echo $row['PatientGender'];?></td>
+<td class="hidden-xs"><?php echo $row['criminalName'];?></td>
+<td><?php echo $row['criminalContno'];?></td>
+<td><?php echo $row['criminalGender'];?></td>
 <td><?php echo $row['CreationDate'];?></td>
 <td><?php echo $row['UpdationDate'];?>
 <td><?php echo $row['IDNumber'];?>

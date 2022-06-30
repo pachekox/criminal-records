@@ -13,7 +13,7 @@ $_SESSION['login']=$_POST['username'];
 $_SESSION['id']=$num['id'];
 $host=$_SERVER['HTTP_HOST'];
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-header("location:hms/dashboard.php");
+header("location:dashboard.php");
 exit();
 }
 else
