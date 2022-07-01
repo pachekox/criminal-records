@@ -1,7 +1,12 @@
-<div class="sidebar app-aside" id="sidebar">
+
+
+
+
+
+			<div class="sidebar app-aside" id="sidebar">
 				<div class="sidebar-container perfect-scrollbar">
 
-<nav>
+					<nav>
 						
 						<!-- start: MAIN NAVIGATION MENU -->
 						<div class="navbar-title">
@@ -51,7 +56,12 @@
 								</ul>
 								</li>
 
-				<li>
+							<?php
+
+								if ($_SESSION['privilege']!=0) {
+									# code...
+								
+								echo'<li>
 								<a href="javascript:void(0)">
 									<div class="item-content">
 										<div class="item-media">
@@ -74,7 +84,10 @@
 									</li>
 									
 								</ul>
-								</li>
+								</li>';
+							}
+
+								?>
 								<li>
 								<a href="javascript:void(0)">
 									<div class="item-content">

@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include("hms/admin/include/config.php");
+include("admin/include/config.php");
 if(isset($_POST['submit']))
 {
 $ret=mysqli_query($con,"SELECT * FROM admin WHERE username='".$_POST['username']."' and password='".$_POST['password']."'");
@@ -11,6 +11,7 @@ if($num>0)
 $extra=".php";//
 $_SESSION['login']=$_POST['username'];
 $_SESSION['id']=$num['id'];
+$_SESSION['privilege'] = $num['superadmin'];
 $host=$_SERVER['HTTP_HOST'];
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:hms/admin/dashboard.php");

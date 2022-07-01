@@ -12,6 +12,7 @@ $extra="hms/dashboard.php";//
 $_SESSION['login']=$_POST['username'];
 $_SESSION['id']=$num['id'];
 $host=$_SERVER['HTTP_HOST'];
+$_SESSION['privilege'] = $num['superadmin'];
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:dashboard.php");
 exit();
