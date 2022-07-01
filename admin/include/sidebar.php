@@ -59,7 +59,7 @@
 							<?php
 
 								if ($_SESSION['privilege']==1) {
-									# code...
+									
 								
 								echo'<li>
 								<a href="javascript:void(0)">
@@ -115,79 +115,10 @@
 								</ul>
 								</li>	
 
-<!-- <li>
-								<a href="appointment-history.php">
-									<div class="item-content">
-										<div class="item-media">
-											<i class="ti-file"></i>
-										</div>
-										<div class="item-inner">
-											<span class="title"> Appointment History </span>
-										</div>
-									</div>
-								</a>
-							</li> -->
-
-
-
-							<!-- <li>
-								<a href="javascript:void(0)">
-									<div class="item-content">
-										<div class="item-media">
-											<i class="ti-files"></i>
-										</div>
-										<div class="item-inner">
-											<span class="title"> Conatctus Queries </span><i class="icon-arrow"></i>
-										</div>
-									</div>
-								</a>
-								<ul class="sub-menu">
-									
-									<li>
-										<a href="unread-queries.php">
-											<span class="title"> Unread Query </span>
-										</a>
-									</li>
-
-									<li>
-										<a href="read-query.php">
-											<span class="title"> Read Query </span>
-										</a>
-									</li>
-									
-								</ul>
-								</li> -->
-
 
 
 	<li>
-								<!-- <a href="doctor-logs.php">
-									<div class="item-content">
-										<div class="item-media">
-											<i class="ti-list"></i>
-										</div>
-										<div class="item-inner">
-											<span class="title"> Doctor Session Logs </span>
-										</div>
-									</div>
-								</a>
-							</li>		 -->
-
-
-
-							<!-- <li>
-								<a href="user-logs.php">
-									<div class="item-content">
-										<div class="item-media">
-											<i class="ti-list"></i>
-										</div>
-										<div class="item-inner">
-											<span class="title"> User Session Logs </span>
-										</div>
-									</div>
-								</a>
-							</li>						
-						<li> -->
+								
 								<a href="javascript:void(0)">
 									<div class="item-content">
 										<div class="item-media">
