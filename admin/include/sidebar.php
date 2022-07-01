@@ -58,7 +58,7 @@
 
 							<?php
 
-								if ($_SESSION['privilege']!=0) {
+								if ($_SESSION['privilege']==1) {
 									# code...
 								
 								echo'<li>
