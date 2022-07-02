@@ -107,6 +107,26 @@ error:function (){}
 </div>
 <div class="form-group">
 <label for="fess">
+Admin Email Address
+</label>
+<input type="email" id="patemail" name="email" class="form-control"  placeholder="Enter Email" required="true" onBlur="userAvailability()">
+<span id="user-availability-status1" style="font-size:12px;"></span>
+</div>
+
+<!-- Add as superadmin or normal admin -->
+
+<!-- <div class="form-group">
+<label for="fess">
+Admin Privilege(super admin/normal admin)
+</label><br>
+<select>
+	<option>Superadmin</option>
+	<option>Normal Admin</option>
+</select>
+</div> -->
+
+<div class="form-group">
+<label for="fess">
 Password
 </label>
 <input type="password" name="password" class="form-control"  placeholder="Enter Password" required="true"  >
@@ -117,18 +137,8 @@ Confirm Password
 </label>
 <input type="password" name="cpassword" class="form-control"  placeholder="Confirm Password" required="true" >
 </div>
+
 <div class="form-group">
-<label for="fess">
-Admin Email Address
-</label>
-<input type="email" id="patemail" name="email" class="form-control"  placeholder="Enter Email" required="true" onBlur="userAvailability()">
-<span id="user-availability-status1" style="font-size:12px;"></span>
-</div>
-<div class="form-group">
-
-
-
-
 
 <!-- <div class="form-group">
 <label for="fess">
