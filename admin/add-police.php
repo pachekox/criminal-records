@@ -136,6 +136,12 @@ while($row=mysqli_fetch_array($ret))
 															</label>
 					<input type="text" name="docname" class="form-control"  placeholder="Enter police Name" required="true">
 														</div>
+														<div class="form-group">
+															<label for="policename">
+																 Police ID Number
+															</label>
+					<input type="text" name="pID" class="form-control"  placeholder="Enter police ID Number" required="true">
+														</div>
 
 
 <div class="form-group">
