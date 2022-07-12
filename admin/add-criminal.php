@@ -62,16 +62,16 @@ error:function (){}
 	</head>
 	<body>
 		<div id="app">		
-<?php include('include/sidebar.php');?>
-<div class="app-content">
-<?php include('include/header.php');?>
+			<?php include('include/sidebar.php');?>
+			<div class="app-content">
+				<?php include('include/header.php');?>
 						
-<div class="main-content" >
-<div class="wrap-content container" id="container">
+				<div class="main-content" >
+					<div class="wrap-content container" id="container">
 						<!-- start: PAGE TITLE -->
-<section id="page-title">
-<div class="row">
-<div class="col-sm-8">
+						<section id="page-title">
+							<div class="row">
+								<div class="col-sm-8">
 <h1 class="mainTitle">Admin |Criminal</h1>
 </div>
 <ol class="breadcrumb">
@@ -132,9 +132,15 @@ Male
 </div>
 <div class="form-group">
 <label for="address">
-Criminal Address
+Criminal Region
 </label>
-<textarea name="pataddress" class="form-control"  placeholder="Enter Criminal Address" required="true"></textarea>
+<input type="text" name="cregion" class="form-control"  placeholder="Enter Criminal Address" required="true"></textarea>
+</div>
+<div class="form-group">
+<label for="address">
+Location
+</label>
+<input type="text" name="clocation" class="form-control"  placeholder="Enter Criminal Address" required="true"></textarea>
 </div>
 <div class="form-group">
 <label for="fess">
@@ -142,6 +148,23 @@ Criminal Age
 </label>
 <input type="text" name="patage" class="form-control"  placeholder="Enter Criminal Age" required="true">
 </div>
+<div class="form-group">
+															<label for="policepecialization">
+																Police Officer Specialization
+															</label>
+							<select name="policepecialization" class="form-control" required="true">
+																<option value="">Select Specialization</option>
+<?php $ret=mysqli_query($con,"select * from policepecilization");
+while($row=mysqli_fetch_array($ret))
+{
+?>
+																<option value="<?php echo htmlentities($row['specilization']);?>">
+																	<?php echo htmlentities($row['specilization']);?>
+																</option>
+																<?php } ?>
+																
+															</select>
+														</div>
 
 <!-- <div class="form-group">
 <label for="fess">
