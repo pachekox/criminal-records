@@ -150,16 +150,16 @@ Criminal Age
 </div>
 <div class="form-group">
 															<label for="policepecialization">
-																Police Officer Specialization
+																Choose crime type
 															</label>
 							<select name="policepecialization" class="form-control" required="true">
 																<option value="">Select Specialization</option>
-<?php $ret=mysqli_query($con,"select * from policepecilization");
+<?php $ret=mysqli_query($con,"select * from crime");
 while($row=mysqli_fetch_array($ret))
 {
 ?>
-																<option value="<?php echo htmlentities($row['specilization']);?>">
-																	<?php echo htmlentities($row['specilization']);?>
+																<option value="<?php echo htmlentities($row['cname']);?>">
+																	<?php echo htmlentities($row['cname']);?>
 																</option>
 																<?php } ?>
 																
