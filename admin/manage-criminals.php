@@ -67,19 +67,20 @@ if(isset($_GET['del']))
 <thead>
 <tr>
 <th class="center">#</th>
-<th>Criminal Name</th>
-<th>Contact Number</th>
-<th>Criminal Gender </th>
+<th>Name</th>
+<th>Contact No.</th>
+<th>Gender </th>
 <th> Date Added </th>
-<th>Date updated </th>
+<th>Updated </th>
 <th>ID No.</th>
+<th>Investigation Status</th>
 <th>Action</th>
 </tr>
 </thead>
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"select * from tblcriminal");
+$sql=mysqli_query($con,"select * from tblcriminal INNER JOIN cases ON tblcriminal.ID=cases.ID");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
@@ -90,9 +91,9 @@ while($row=mysqli_fetch_array($sql))
 <td><?php echo $row['criminalContno'];?></td>
 <td><?php echo $row['criminalGender'];?></td>
 <td><?php echo $row['CreationDate'];?></td>
-<td><?php echo $row['UpdationDate'];?>
-<td><?php echo $row['IDNumber'];?>
-</td>
+<td><?php echo $row['UpdationDate'];?></td>
+<td><?php echo $row['IDNumber'];?></td>
+<td><?php echo $row['investigationStatus'];?></td>
 <td>
 
 <a href="view-criminals.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
