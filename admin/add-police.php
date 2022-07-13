@@ -10,10 +10,12 @@ if(isset($_POST['submit']))
 $docname=$_POST['docname'];
 $docaddress=$_POST['clinicaddress'];
 $docfees=$_POST['docfees'];
+$pID = $_POST['pID'];
 $doccontactno=$_POST['doccontact'];
 $docemail=$_POST['docemail'];
 $password=md5($_POST['npass']);
-$sql=mysqli_query($con,"insert into police(specilization,policeName,address,docFees,contactno,docEmail,password) values('$docspecialization','$docname','$docaddress','$docfees','$doccontactno','$docemail','$password')");
+$sql=mysqli_query($con,"insert into police(specilization,policeName,address,docFees,contactno,docEmail,pID
+	,password) values('$docspecialization','$docname','$docaddress','$docfees','$doccontactno','$docemail','$pID','$password')");
 if($sql)
 {
 echo "<script>alert('police info added Successfully');</script>";

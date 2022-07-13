@@ -134,13 +134,13 @@ Male
 <label for="address">
 Criminal Region
 </label>
-<input type="text" name="cregion" class="form-control"  placeholder="Enter Criminal Address" required="true"></textarea>
+<input type="text" name="cregion" class="form-control"  placeholder="Enter Criminal Region" required="true"></textarea>
 </div>
 <div class="form-group">
 <label for="address">
 Location
 </label>
-<input type="text" name="clocation" class="form-control"  placeholder="Enter Criminal Address" required="true"></textarea>
+<input type="text" name="clocation" class="form-control"  placeholder="Enter Criminal Location" required="true"></textarea>
 </div>
 <div class="form-group">
 <label for="fess">
