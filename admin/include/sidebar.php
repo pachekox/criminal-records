@@ -44,8 +44,13 @@
 										</a>
 									</li>
 									<li>
-										<a href="Manage-police.php">
+										<a href="manage-police.php">
 											<span class="title"> Manage Police </span>
+										</a>
+									</li>
+									<li>
+										<a href="cases.php">
+											<span class="title"> Cases </span>
 										</a>
 									</li>
 									

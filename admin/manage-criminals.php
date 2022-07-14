@@ -80,7 +80,7 @@ if(isset($_GET['del']))
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"select * from tblcriminal INNER JOIN cases ON tblcriminal.ID=cases.ID");
+$sql=mysqli_query($con,"select * from tblcriminal INNER JOIN cases ON tblcriminal.ID=cases.criminalID");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
