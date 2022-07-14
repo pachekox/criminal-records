@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2022 at 08:01 AM
+-- Generation Time: Jul 14, 2022 at 01:31 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -52,20 +52,44 @@ CREATE TABLE `cases` (
   `ID` int(10) NOT NULL,
   `criminalID` int(10) DEFAULT NULL,
   `CaseDescription` mediumtext DEFAULT NULL,
-  `DateFiled` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `DateFiled` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `investigationStatus` varchar(12) NOT NULL DEFAULT 'Ongoing',
+  `policeID` int(11) NOT NULL,
+  `cid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cases`
 --
 
-INSERT INTO `cases` (`ID`, `criminalID`, `CaseDescription`, `DateFiled`) VALUES
-(2, 3, '#Fever, #BP high\r\n1.Paracetamol\r\n2.jocib tab\r\n', '2019-11-06 04:20:07'),
-(3, 2, '#Sugar High\r\n1.Petz 30', '2019-11-06 04:31:24'),
-(4, 1, '# blood pressure is high\r\n1.koil cipla', '2019-11-06 04:52:42'),
-(5, 1, '#Viral\r\n1.gjgjh-1Ml\r\n2.kjhuiy-2M', '2019-11-06 04:56:55'),
-(6, 4, '#blood sugar high\r\n#Asthma problem', '2019-11-06 14:38:33'),
-(7, 5, 'Rx\r\n\r\nAbc tab\r\nxyz Syrup', '2019-11-10 18:50:23');
+INSERT INTO `cases` (`ID`, `criminalID`, `CaseDescription`, `DateFiled`, `investigationStatus`, `policeID`, `cid`) VALUES
+(9, 5, 'killed a 14 year old girl', '2022-07-14 06:21:15', 'Ongoing', 10, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `crime`
+--
+
+CREATE TABLE `crime` (
+  `cid` int(11) NOT NULL,
+  `cname` varchar(34) NOT NULL,
+  `dateCreated` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `crime`
+--
+
+INSERT INTO `crime` (`cid`, `cname`, `dateCreated`) VALUES
+(1, 'Domestic Violence', '2022-07-12 20:18:47'),
+(2, 'Domestic Violence', '2022-07-12 20:20:09'),
+(3, 'Assault', '2022-07-12 20:20:49'),
+(4, 'Murder', '2022-07-12 20:21:54'),
+(5, 'Robbing', '2022-07-12 20:22:22'),
+(6, 'Fraud', '2022-07-12 20:24:13'),
+(7, 'Defilement', '2022-07-12 20:24:50'),
+(8, 'Others', '2022-07-12 20:25:16');
 
 -- --------------------------------------------------------
 
@@ -81,6 +105,7 @@ CREATE TABLE `police` (
   `docFees` varchar(255) DEFAULT NULL,
   `contactno` bigint(11) DEFAULT NULL,
   `docEmail` varchar(255) DEFAULT NULL,
+  `pID` int(8) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
   `creationDate` timestamp NULL DEFAULT current_timestamp(),
   `updationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
@@ -90,16 +115,8 @@ CREATE TABLE `police` (
 -- Dumping data for table `police`
 --
 
-INSERT INTO `police` (`id`, `specilization`, `policeName`, `address`, `docFees`, `contactno`, `docEmail`, `password`, `creationDate`, `updationDate`) VALUES
-(1, 'Dentist', 'Anuj', 'New Delhi', '500', 8285703354, 'anuj.lpu1@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2016-12-29 06:25:37', '2019-06-30 12:11:05'),
-(2, 'Homeopath', 'Sarita Pandey', 'Varanasi', '600', 2147483647, 'sarita@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2016-12-29 06:51:51', '0000-00-00 00:00:00'),
-(3, 'General Physician', 'Nitesh Kumar', 'Ghaziabad', '1200', 8523699999, 'nitesh@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:43:35', '0000-00-00 00:00:00'),
-(4, 'Homeopath', 'Vijay Verma', 'New Delhi', '700', 25668888, 'vijay@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:45:09', '0000-00-00 00:00:00'),
-(5, 'Ayurveda', 'Sanjeev', 'Gurugram', '8050', 442166644646, 'sanjeev@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:47:07', '0000-00-00 00:00:00'),
-(6, 'General Physician', 'Amrita', 'New Delhi India', '2500', 45497964, 'amrita@test.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:52:50', '0000-00-00 00:00:00'),
-(7, 'Demo test', 'abc ', 'New Delhi India', '200', 852888888, 'test@demo.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 08:08:58', '2019-06-23 18:17:25'),
-(8, 'Ayurveda', 'Test police', 'Xyz Abc New Delhi', '600', 1234567890, 'test@test.com', '202cb962ac59075b964b07152d234b70', '2019-06-23 17:57:43', '2019-06-23 18:06:06'),
-(9, 'Dermatologist', 'Anuj kumar', 'New Delhi India 110001', '500', 1234567890, 'anujk@test.com', 'f925916e2754e5e03f75dd58a5733251', '2019-11-10 18:37:47', '2019-11-10 18:38:10');
+INSERT INTO `police` (`id`, `specilization`, `policeName`, `address`, `docFees`, `contactno`, `docEmail`, `pID`, `password`, `creationDate`, `updationDate`) VALUES
+(10, 'cooporal', 'steven kamau', 'nyeri', '2000', 742202957, 'police@gmail.com', 3640807, 'password', '2022-07-14 06:20:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -150,33 +167,6 @@ INSERT INTO `policepecilization` (`id`, `specilization`, `creationDate`, `updati
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblcontactus`
---
-
-CREATE TABLE `tblcontactus` (
-  `id` int(11) NOT NULL,
-  `fullname` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `contactno` bigint(12) DEFAULT NULL,
-  `message` mediumtext DEFAULT NULL,
-  `PostingDate` timestamp NULL DEFAULT current_timestamp(),
-  `AdminRemark` mediumtext DEFAULT NULL,
-  `LastupdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
-  `IsRead` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tblcontactus`
---
-
-INSERT INTO `tblcontactus` (`id`, `fullname`, `email`, `contactno`, `message`, `PostingDate`, `AdminRemark`, `LastupdationDate`, `IsRead`) VALUES
-(1, 'test user', 'test@gmail.com', 2523523522523523, ' This is sample text for the test.', '2019-06-29 19:03:08', 'Test Admin Remark', '2019-06-30 12:55:23', 1),
-(2, 'Anuj kumar', 'phpgurukulofficial@gmail.com', 1111111111111111, ' This is sample text for testing.  This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing. This is sample text for testing.', '2019-06-30 13:06:50', NULL, NULL, NULL),
-(3, 'fdsfsdf', 'fsdfsd@ghashhgs.com', 3264826346, 'sample text   sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  sample text  ', '2019-11-10 18:53:48', 'vfdsfgfd', '2019-11-10 18:54:04', 1);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tblcriminal`
 --
 
@@ -204,22 +194,6 @@ INSERT INTO `tblcriminal` (`ID`, `Docid`, `criminalName`, `criminalContno`, `cri
 (3, 7, 'Mansi', 9878978798, 'jk@gmail.com', 'Female', '\"fdghyj', 46, 'No', '2019-11-05 10:49:41', '2019-11-05 11:58:59'),
 (4, 7, 'Manav Sharma', 9888988989, 'sharma@gmail.com', 'Male', 'L-56,Ashok Nagar New Delhi-110096', 45, 'He is long suffered by asthma', '2019-11-06 14:33:54', '2019-11-06 14:34:31'),
 (5, 9, 'John', 1234567890, 'john@test.com', 'male', 'Test ', 25, 'THis is sample text for testing.', '2019-11-10 18:49:24', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `userlog`
---
-
-CREATE TABLE `userlog` (
-  `id` int(11) NOT NULL,
-  `uid` int(11) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `userip` binary(16) DEFAULT NULL,
-  `loginTime` timestamp NULL DEFAULT current_timestamp(),
-  `logout` varchar(255) DEFAULT NULL,
-  `status` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -265,7 +239,16 @@ ALTER TABLE `admin`
 -- Indexes for table `cases`
 --
 ALTER TABLE `cases`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `policeID` (`policeID`),
+  ADD KEY `criminalID` (`criminalID`),
+  ADD KEY `cid_fk` (`cid`);
+
+--
+-- Indexes for table `crime`
+--
+ALTER TABLE `crime`
+  ADD PRIMARY KEY (`cid`);
 
 --
 -- Indexes for table `police`
@@ -286,22 +269,10 @@ ALTER TABLE `policepecilization`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tblcontactus`
---
-ALTER TABLE `tblcontactus`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tblcriminal`
 --
 ALTER TABLE `tblcriminal`
   ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `userlog`
---
-ALTER TABLE `userlog`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -324,13 +295,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cases`
 --
 ALTER TABLE `cases`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `crime`
+--
+ALTER TABLE `crime`
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `police`
 --
 ALTER TABLE `police`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `policelog`
@@ -345,28 +322,28 @@ ALTER TABLE `policepecilization`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `tblcontactus`
---
-ALTER TABLE `tblcontactus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `tblcriminal`
 --
 ALTER TABLE `tblcriminal`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `userlog`
---
-ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cases`
+--
+ALTER TABLE `cases`
+  ADD CONSTRAINT `cases_ibfk_1` FOREIGN KEY (`policeID`) REFERENCES `police` (`id`),
+  ADD CONSTRAINT `cases_ibfk_2` FOREIGN KEY (`criminalID`) REFERENCES `tblcriminal` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cases_ibfk_3` FOREIGN KEY (`cid`) REFERENCES `crime` (`cid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
