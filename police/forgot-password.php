@@ -6,7 +6,7 @@ include("include/config.php");
 if(isset($_POST['submit'])){
 $contactno=$_POST['contactno'];
 $email=$_POST['email'];
-$query=mysqli_query($con,"select id from  doctors where contactno='$contactno' and docEmail='$email'");
+$query=mysqli_query($con,"select id from  Polices where contactno='$contactno' and docEmail='$email'");
 $row=mysqli_num_rows($query);
 if($row>0){
 
@@ -44,14 +44,14 @@ echo "<script>window.location.href ='forgot-password.php'</script>";
 		<div class="row">
 			<div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 				<div class="logo margin-top-30">
-				<a href="../../index.html"><h2> HMS | Doctor Password Recovery</h2></a>
+				<a href="../../index.html"><h2> CRTS | Police Password Recovery</h2></a>
 				</div>
 
 				<div class="box-login">
 					<form class="form-login" method="post">
 						<fieldset>
 							<legend>
-								Doctor Password Recovery
+								Police Password Recovery
 							</legend>
 							<p>
 								Please enter your  Contact number and Email to recover your password.<br />
@@ -87,7 +87,7 @@ echo "<script>window.location.href ='forgot-password.php'</script>";
 					</form>
 
 					<div class="copyright">
-						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> HMS</span>. <span>All rights reserved</span>
+						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> CRTS</span>. <span>All rights reserved</span>
 					</div>
 			
 				</div>
