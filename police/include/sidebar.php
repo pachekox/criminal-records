@@ -48,12 +48,12 @@
 								<ul class="sub-menu">
 									
 									<li>
-										<a href="add-patient.php">
+										<a href="add-criminal.php">
 											<span class="title"> Add Criminals</span>
 										</a>
 									</li>
 									<li>
-										<a href="manage-patient.php">
+										<a href="manage-criminal.php">
 											<span class="title"> Manage Criminals </span>
 										</a>
 									</li>
