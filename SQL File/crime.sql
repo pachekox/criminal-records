@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2022 at 01:31 PM
+-- Generation Time: Jul 15, 2022 at 05:37 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -116,7 +116,8 @@ CREATE TABLE `police` (
 --
 
 INSERT INTO `police` (`id`, `specilization`, `policeName`, `address`, `docFees`, `contactno`, `docEmail`, `pID`, `password`, `creationDate`, `updationDate`) VALUES
-(10, 'cooporal', 'steven kamau', 'nyeri', '2000', 742202957, 'police@gmail.com', 3640807, 'password', '2022-07-14 06:20:03', NULL);
+(10, 'cooporal', 'steven kamau', 'nyeri', '2000', 742202957, 'police@gmail.com', 3640807, 'password', '2022-07-14 06:20:03', NULL),
+(11, 'seargent', 'kamau', 'sigoti', '', 254769869061, 'police6@gmail.com', 34566677, '25d55ad283aa400af464c76d713c07ad', '2022-07-15 12:48:41', '2022-07-15 12:50:54');
 
 -- --------------------------------------------------------
 
@@ -173,12 +174,12 @@ INSERT INTO `policepecilization` (`id`, `specilization`, `creationDate`, `updati
 CREATE TABLE `tblcriminal` (
   `ID` int(10) NOT NULL,
   `Docid` int(10) DEFAULT NULL,
-  `criminalName` varchar(200) DEFAULT NULL,
+  `criminalName` varchar(24) DEFAULT NULL,
   `criminalContno` bigint(10) DEFAULT NULL,
-  `criminalEmail` varchar(200) DEFAULT NULL,
-  `criminalGender` varchar(50) DEFAULT NULL,
+  `criminalEmail` varchar(15) DEFAULT NULL,
+  `criminalGender` varchar(5) DEFAULT NULL,
   `criminalAdd` mediumtext DEFAULT NULL,
-  `criminalAge` int(10) DEFAULT NULL,
+  `criminalAge` int(4) DEFAULT NULL,
   `criminalMedhis` mediumtext DEFAULT NULL,
   `CreationDate` timestamp NULL DEFAULT current_timestamp(),
   `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
@@ -189,10 +190,10 @@ CREATE TABLE `tblcriminal` (
 --
 
 INSERT INTO `tblcriminal` (`ID`, `Docid`, `criminalName`, `criminalContno`, `criminalEmail`, `criminalGender`, `criminalAdd`, `criminalAge`, `criminalMedhis`, `CreationDate`, `UpdationDate`) VALUES
-(1, 1, 'Manisha Jha', 4558968789, 'test@gmail.com', 'Female', '\"\"J&K Block J-127, Laxmi Nagar New Delhi', 26, 'She is diabetic criminal', '2019-11-04 21:38:06', '2019-11-06 06:48:05'),
+(1, 1, 'Manisha Jha', 4558968789, 'test@gmail.com', 'Femal', '\"\"J&K Block J-127, Laxmi Nagar New Delhi', 26, 'She is diabetic criminal', '2019-11-04 21:38:06', '2019-11-06 06:48:05'),
 (2, 5, 'Raghu Yadav', 9797977979, 'raghu@gmail.com', 'Male', 'ABC Apartment Mayur Vihar Ph-1 New Delhi', 39, 'No', '2019-11-05 10:40:13', '2019-11-05 11:53:45'),
-(3, 7, 'Mansi', 9878978798, 'jk@gmail.com', 'Female', '\"fdghyj', 46, 'No', '2019-11-05 10:49:41', '2019-11-05 11:58:59'),
-(4, 7, 'Manav Sharma', 9888988989, 'sharma@gmail.com', 'Male', 'L-56,Ashok Nagar New Delhi-110096', 45, 'He is long suffered by asthma', '2019-11-06 14:33:54', '2019-11-06 14:34:31'),
+(3, 7, 'Mansi', 9878978798, 'jk@gmail.com', 'Femal', '\"fdghyj', 46, 'No', '2019-11-05 10:49:41', '2019-11-05 11:58:59'),
+(4, 7, 'Manav Sharma', 9888988989, 'sharma@gmail.co', 'Male', 'L-56,Ashok Nagar New Delhi-110096', 45, 'He is long suffered by asthma', '2019-11-06 14:33:54', '2019-11-06 14:34:31'),
 (5, 9, 'John', 1234567890, 'john@test.com', 'male', 'Test ', 25, 'THis is sample text for testing.', '2019-11-10 18:49:24', NULL);
 
 -- --------------------------------------------------------
@@ -307,7 +308,7 @@ ALTER TABLE `crime`
 -- AUTO_INCREMENT for table `police`
 --
 ALTER TABLE `police`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `policelog`
