@@ -1,5 +1,4 @@
 Login Details
 
 Login Details for admin : admin/Test@12345
-Login Details for criminal: test@gmail.com/Test@123
-Login Details for police: test@demo.com/Test@123
+Login Details for police: police6@gmail.com/12345678
