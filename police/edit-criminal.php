@@ -27,7 +27,7 @@ header('location:manage-patient.php');
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Doctor | Add Patient</title>
+		<title>police | Add Patient</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -89,7 +89,7 @@ while ($row=mysqli_fetch_array($ret)) {
 
 ?>
 <div class="form-group">
-<label for="doctorname">
+<label for="policename">
 Patient Name
 </label>
 <input type="text" name="patname" class="form-control"  value="<?php  echo $row['PatientName'];?>" required="true">
