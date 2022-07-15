@@ -112,6 +112,11 @@
 											<span class="title"> Add Criminal</span>
 										</a>
 									</li>
+									<li>
+										<a href="add-case.php">
+											<span class="title"> Add Case</span>
+										</a>
+									</li>
 									
 								</ul>
 								</li>	
