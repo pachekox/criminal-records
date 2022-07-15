@@ -9,7 +9,7 @@ check_login();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Police | Serach Criminals</title>
+		<title>Police | Search Criminals</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -37,14 +37,14 @@ check_login();
 <section id="page-title">
 <div class="row">
 <div class="col-sm-8">
-<h1 class="mainTitle">Police | Serach Criminals</h1>
+<h1 class="mainTitle">Police | Search Criminals</h1>
 </div>
 <ol class="breadcrumb">
 <li>
-<span>Doctor</span>
+<span>Police</span>
 </li>
 <li class="active">
-<span>Manage Patients</span>
+<span>Manage criminals</span>
 </li>
 </ol>
 </div>
@@ -55,7 +55,7 @@ check_login();
 	<form role="form" method="post" name="search">
 
 <div class="form-group">
-<label for="doctorname">
+<label for="Policename">
 Search by Name/Mobile No.
 </label>
 <input type="text" name="searchdata" id="searchdata" class="form-control" value="" required='true'>
@@ -77,9 +77,9 @@ $sdata=$_POST['searchdata'];
 <thead>
 <tr>
 <th class="center">#</th>
-<th>Patient Name</th>
-<th>Patient Contact Number</th>
-<th>Patient Gender </th>
+<th>criminal Name</th>
+<th>criminal Contact Number</th>
+<th>criminal Gender </th>
 <th>Creation Date </th>
 <th>Updation Date </th>
 <th>Action</th>
@@ -87,7 +87,7 @@ $sdata=$_POST['searchdata'];
 </thead>
 <tbody>
 <?php
-$sql=mysqli_query($con,"select * from tblpatient where PatientName like '%$sdata%'|| PatientContno like '%$sdata%'");
+$sql=mysqli_query($con,"select * from tblcriminal where criminalName like '%$sdata%'|| criminalContno like '%$sdata%'");
 $num=mysqli_num_rows($sql);
 if($num>0){
 $cnt=1;
@@ -96,15 +96,15 @@ while($row=mysqli_fetch_array($sql))
 ?>
 <tr>
 <td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td><?php echo $row['PatientContno'];?></td>
-<td><?php echo $row['PatientGender'];?></td>
+<td class="hidden-xs"><?php echo $row['criminalName'];?></td>
+<td><?php echo $row['criminalContno'];?></td>
+<td><?php echo $row['criminalGender'];?></td>
 <td><?php echo $row['CreationDate'];?></td>
 <td><?php echo $row['UpdationDate'];?>
 </td>
 <td>
 
-<a href="edit-patient.php?editid=<?php echo $row['ID'];?>"><i class="fa fa-edit"></i></a> || <a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
+<a href="edit-criminal.php?editid=<?php echo $row['ID'];?>"><i class="fa fa-edit"></i></a> || <a href="view-criminal.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
 
 </td>
 </tr>
