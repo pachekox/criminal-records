@@ -1,1 +1,0 @@
-This directory throws errors when accessed since the module is not yet configured
