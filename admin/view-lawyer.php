@@ -32,7 +32,7 @@ if(isset($_POST['submit']))
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Administrator | Manage Lawyers</title>
+		<title>Administrator | View Lawyer</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -60,14 +60,14 @@ if(isset($_POST['submit']))
 <section id="page-title">
 <div class="row">
 <div class="col-sm-8">
-<h1 class="mainTitle">Admin | Manage Lawyers</h1>
+<h1 class="mainTitle">Admin | View Lawyer</h1>
 </div>
 <ol class="breadcrumb">
 <li>
-<span>Doctor</span>
+<span>Admin</span>
 </li>
 <li class="active">
-<span>Manage Lawyers</span>
+<span>View Lawyer</span>
 </li>
 </ol>
 </div>
@@ -75,7 +75,7 @@ if(isset($_POST['submit']))
 <div class="container-fluid container-fullw bg-white">
 <div class="row">
 <div class="col-md-12">
-<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Lawyers</span></h5>
+<h5 class="over-title margin-bottom-15">View <span class="text-bold">Lawyer Details</span></h5>
 <?php
                                $vid=$_GET['viewid'];
                                $ret=mysqli_query($con,"select * from tbllawyer where ID='$vid'");
@@ -89,7 +89,7 @@ Lawyers Details</td></tr>
 
     <tr>
     <th scope>Lawyer Name</th>
-    <td><?php  echo $row['lawyerName'];?></td>
+    <td><?php  echo $row['lawyername'];?></td>
     <th scope>Lawyer Email</th>
     <td><?php  echo $row['lawyerEmail'];?></td>
   </tr>
@@ -102,53 +102,14 @@ Lawyers Details</td></tr>
     <tr>
     <th>Lawyer Gender</th>
     <td><?php  echo $row['lawyerGender'];?></td>
-    <th>Lawyer Age</th>
-    <td><?php  echo $row['lawyerAge'];?></td>
+   
   </tr>
-  <tr>
-    
-    <th>Crime History</th>
-    <td><?php  echo $row['lawyerMedhis'];?></td>
-     <th>Lawyers Reg Date</th>
-    <td><?php  echo $row['CreationDate'];?></td>
-  </tr>
+
  
 <?php }?>
 </table>
-<?php  
+  
 
-$ret=mysqli_query($con,"select * from tblmedicalhistory  where lawyerID='$vid'");
-
-
-
- ?>
-<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-  <tr align="center">
-   <th colspan="8" >Crime History</th> 
-  </tr>
-  <tr>
-    <th>#</th>
-<th>Blood Pressure</th>
-<th>Weight</th>
-<th>Blood Sugar</th>
-<th>Body Temprature</th>
-<th>Crime Prescription</th>
-<th>Register Date</th>
-</tr>
-<?php  
-while ($row=mysqli_fetch_array($ret)) { 
-  ?>
-<tr>
-  <td><?php echo $cnt;?></td>
- <td><?php  echo $row['BloodPressure'];?></td>
- <td><?php  echo $row['Weight'];?></td>
- <td><?php  echo $row['BloodSugar'];?></td> 
-  <td><?php  echo $row['Temperature'];?></td>
-  <td><?php  echo $row['MedicalPres'];?></td>
-  <td><?php  echo $row['CreationDate'];?></td> 
-</tr>
-<?php $cnt=$cnt+1;} ?>
-</table>
                           
 </div>
 </div>
