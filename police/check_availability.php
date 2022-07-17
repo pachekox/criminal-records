@@ -2,7 +2,7 @@
 require_once("include/config.php");
 if(!empty($_POST["email"])) {
 	$email= $_POST["email"];
-$result =mysqli_query($con,"SELECT PatientEmail FROM tblpatient WHERE PatientEmail='$email'");
+$result =mysqli_query($con,"SELECT criminalEmail FROM tblcriminal WHERE criminalEmail='$email'");
 $count=mysqli_num_rows($result);
 if($count>0)
 {
