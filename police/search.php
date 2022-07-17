@@ -56,13 +56,13 @@ check_login();
 
 <div class="form-group">
 <label for="Policename">
-Search by Name/Mobile No.
+Search by ID Number/Mobile No.
 </label>
 <input type="text" name="searchdata" id="searchdata" class="form-control" value="" required='true'>
 </div>
 
 <button type="submit" name="search" id="submit" class="btn btn-o btn-primary">
-Search
+Search Criminal
 </button>
 </form>	
 <?php
@@ -71,7 +71,7 @@ if(isset($_POST['search']))
 
 $sdata=$_POST['searchdata'];
   ?>
-<h4 align="center">Result against "<?php echo $sdata;?>" keyword </h4>
+<h4 align="center">Result against "<?php echo $sdata;?>" </h4>
 
 <table class="table table-hover" id="sample-table-1">
 <thead>
@@ -87,7 +87,7 @@ $sdata=$_POST['searchdata'];
 </thead>
 <tbody>
 <?php
-$sql=mysqli_query($con,"select * from tblcriminal where criminalName like '%$sdata%'|| criminalContno like '%$sdata%'");
+$sql=mysqli_query($con,"select * from tblcriminal where ID like '%$sdata%'|| criminalContno like '%$sdata%'");
 $num=mysqli_num_rows($sql);
 if($num>0){
 $cnt=1;
