@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2022 at 05:37 PM
+-- Generation Time: Jul 17, 2022 at 09:05 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -55,15 +55,16 @@ CREATE TABLE `cases` (
   `DateFiled` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `investigationStatus` varchar(12) NOT NULL DEFAULT 'Ongoing',
   `policeID` int(11) NOT NULL,
-  `cid` int(11) NOT NULL
+  `cid` int(11) NOT NULL,
+  `lawyer_id` int(24) NOT NULL DEFAULT 10251169
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cases`
 --
 
-INSERT INTO `cases` (`ID`, `criminalID`, `CaseDescription`, `DateFiled`, `investigationStatus`, `policeID`, `cid`) VALUES
-(9, 5, 'killed a 14 year old girl', '2022-07-14 06:21:15', 'Ongoing', 10, 4);
+INSERT INTO `cases` (`ID`, `criminalID`, `CaseDescription`, `DateFiled`, `investigationStatus`, `policeID`, `cid`, `lawyer_id`) VALUES
+(9, 5, 'killed a 14 year old girl', '2022-07-17 16:01:13', 'Ongoing', 10, 4, 10251169);
 
 -- --------------------------------------------------------
 
@@ -122,22 +123,6 @@ INSERT INTO `police` (`id`, `specilization`, `policeName`, `address`, `docFees`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `policelog`
---
-
-CREATE TABLE `policelog` (
-  `id` int(11) NOT NULL,
-  `uid` int(11) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `userip` binary(16) DEFAULT NULL,
-  `loginTime` timestamp NULL DEFAULT current_timestamp(),
-  `logout` varchar(255) DEFAULT NULL,
-  `status` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `policepecilization`
 --
 
@@ -173,14 +158,12 @@ INSERT INTO `policepecilization` (`id`, `specilization`, `creationDate`, `updati
 
 CREATE TABLE `tblcriminal` (
   `ID` int(10) NOT NULL,
-  `Docid` int(10) DEFAULT NULL,
   `criminalName` varchar(24) DEFAULT NULL,
   `criminalContno` bigint(10) DEFAULT NULL,
   `criminalEmail` varchar(15) DEFAULT NULL,
   `criminalGender` varchar(5) DEFAULT NULL,
   `criminalAdd` mediumtext DEFAULT NULL,
   `criminalAge` int(4) DEFAULT NULL,
-  `criminalMedhis` mediumtext DEFAULT NULL,
   `CreationDate` timestamp NULL DEFAULT current_timestamp(),
   `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -189,12 +172,37 @@ CREATE TABLE `tblcriminal` (
 -- Dumping data for table `tblcriminal`
 --
 
-INSERT INTO `tblcriminal` (`ID`, `Docid`, `criminalName`, `criminalContno`, `criminalEmail`, `criminalGender`, `criminalAdd`, `criminalAge`, `criminalMedhis`, `CreationDate`, `UpdationDate`) VALUES
-(1, 1, 'Manisha Jha', 4558968789, 'test@gmail.com', 'Femal', '\"\"J&K Block J-127, Laxmi Nagar New Delhi', 26, 'She is diabetic criminal', '2019-11-04 21:38:06', '2019-11-06 06:48:05'),
-(2, 5, 'Raghu Yadav', 9797977979, 'raghu@gmail.com', 'Male', 'ABC Apartment Mayur Vihar Ph-1 New Delhi', 39, 'No', '2019-11-05 10:40:13', '2019-11-05 11:53:45'),
-(3, 7, 'Mansi', 9878978798, 'jk@gmail.com', 'Femal', '\"fdghyj', 46, 'No', '2019-11-05 10:49:41', '2019-11-05 11:58:59'),
-(4, 7, 'Manav Sharma', 9888988989, 'sharma@gmail.co', 'Male', 'L-56,Ashok Nagar New Delhi-110096', 45, 'He is long suffered by asthma', '2019-11-06 14:33:54', '2019-11-06 14:34:31'),
-(5, 9, 'John', 1234567890, 'john@test.com', 'male', 'Test ', 25, 'THis is sample text for testing.', '2019-11-10 18:49:24', NULL);
+INSERT INTO `tblcriminal` (`ID`, `criminalName`, `criminalContno`, `criminalEmail`, `criminalGender`, `criminalAdd`, `criminalAge`, `CreationDate`, `UpdationDate`) VALUES
+(0, 'patrick', 2324424234, 'oluochp6@gmail.', 'male', 'westend mall', 21, '2022-07-17 14:11:22', NULL),
+(1, 'Manisha Jha', 4558968789, 'test@gmail.com', 'Femal', '\"\"J&K Block J-127, Laxmi Nagar New Delhi', 26, '2019-11-04 21:38:06', '2019-11-06 06:48:05'),
+(2, 'Raghu Yadav', 9797977979, 'raghu@gmail.com', 'Male', 'ABC Apartment Mayur Vihar Ph-1 New Delhi', 39, '2019-11-05 10:40:13', '2019-11-05 11:53:45'),
+(3, 'Mansi', 9878978798, 'jk@gmail.com', 'Femal', '\"fdghyj', 46, '2019-11-05 10:49:41', '2019-11-05 11:58:59'),
+(4, 'Manav Sharma', 9888988989, 'sharma@gmail.co', 'Male', 'L-56,Ashok Nagar New Delhi-110096', 45, '2019-11-06 14:33:54', '2019-11-06 14:34:31'),
+(5, 'John', 1234567890, 'john@test.com', 'male', 'Test ', 25, '2019-11-10 18:49:24', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbllawyer`
+--
+
+CREATE TABLE `tbllawyer` (
+  `ID` int(24) NOT NULL,
+  `lawyername` varchar(23) DEFAULT NULL,
+  `lawyerContno` varchar(23) DEFAULT NULL,
+  `lawyerEmail` varchar(23) DEFAULT NULL,
+  `lawyerGender` varchar(5) DEFAULT NULL,
+  `lawyerAdd` varchar(23) DEFAULT NULL,
+  `datecreated` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbllawyer`
+--
+
+INSERT INTO `tbllawyer` (`ID`, `lawyername`, `lawyerContno`, `lawyerEmail`, `lawyerGender`, `lawyerAdd`, `datecreated`) VALUES
+(10251169, 'Kipchumba Murkomen', '2324424234', 'oluochpe6@gmail.com', 'male', 'nairobi', '2022-07-17 18:22:12'),
+(36509112, 'kibicho', '2324424234', '6@gmail.com', 'femal', 'Nairobi', '2022-07-17 18:22:12');
 
 -- --------------------------------------------------------
 
@@ -243,7 +251,8 @@ ALTER TABLE `cases`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `policeID` (`policeID`),
   ADD KEY `criminalID` (`criminalID`),
-  ADD KEY `cid_fk` (`cid`);
+  ADD KEY `cid_fk` (`cid`),
+  ADD KEY `lawyer_id` (`lawyer_id`);
 
 --
 -- Indexes for table `crime`
@@ -258,12 +267,6 @@ ALTER TABLE `police`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `policelog`
---
-ALTER TABLE `policelog`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `policepecilization`
 --
 ALTER TABLE `policepecilization`
@@ -273,6 +276,12 @@ ALTER TABLE `policepecilization`
 -- Indexes for table `tblcriminal`
 --
 ALTER TABLE `tblcriminal`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tbllawyer`
+--
+ALTER TABLE `tbllawyer`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -311,22 +320,10 @@ ALTER TABLE `police`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `policelog`
---
-ALTER TABLE `policelog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
 -- AUTO_INCREMENT for table `policepecilization`
 --
 ALTER TABLE `policepecilization`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `tblcriminal`
---
-ALTER TABLE `tblcriminal`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -344,7 +341,8 @@ ALTER TABLE `users`
 ALTER TABLE `cases`
   ADD CONSTRAINT `cases_ibfk_1` FOREIGN KEY (`policeID`) REFERENCES `police` (`id`),
   ADD CONSTRAINT `cases_ibfk_2` FOREIGN KEY (`criminalID`) REFERENCES `tblcriminal` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cases_ibfk_3` FOREIGN KEY (`cid`) REFERENCES `crime` (`cid`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cases_ibfk_3` FOREIGN KEY (`cid`) REFERENCES `crime` (`cid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cases_ibfk_4` FOREIGN KEY (`lawyer_id`) REFERENCES `tbllawyer` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

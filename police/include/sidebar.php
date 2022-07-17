@@ -57,7 +57,7 @@
 								<span class="title"> Manage Criminals </span>
 							</a>
 						</li>
-						
+
 
 					</ul>
 				</li>
@@ -74,21 +74,21 @@
 					</a>
 					<ul class="sub-menu">
 
-						
+
 						<li>
 							<a href="add-case.php">
 								<span class="title"> Add case </span>
 							</a>
 						</li>
 						<li>
-										<a href="cases.php">
-											<span class="title">View Cases </span>
-										</a>
-									</li>
+							<a href="cases.php">
+								<span class="title">View Cases </span>
+							</a>
+						</li>
 
 					</ul>
 				</li>
-			
+
 				<li>
 					<a href="search.php">
 						<div class="item-content">
