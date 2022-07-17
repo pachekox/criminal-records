@@ -104,7 +104,7 @@ $num_rows1 = mysqli_num_rows($result1);
 											<h2 class="StepTitle">Manage Criminals</h2>
 											
 											<p class="links cl-effect-1">
-												<a href="manage-criminal.php">
+												<a href="manage-criminals.php">
 											<?php $result = mysqli_query($con,"SELECT * FROM tblcriminal ");
 											$num_rows = mysqli_num_rows($result);
 											{
