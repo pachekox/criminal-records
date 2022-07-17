@@ -6,17 +6,17 @@ include('include/checklogin.php');
 check_login();
 
 if (isset($_POST['submit'])) {
-    
+
     $criminalID = $_POST['criminalid'];
     $caseDescription = $_POST['caseDescription'];
     $policeID = $_POST['policeID'];
     $status = $_POST['status'];
     $cid = $_POST['cid'];
-    
+
     $sql = mysqli_query($con, "insert into cases(criminalID,caseDescription,investigationStatus,policeID,cid) values('$criminalID','$caseDescription','$status','$policeID','$cid')");
     if ($sql) {
-        echo "<script>alert('Patient info added Successfully');</script>";
-        header('location:add-patient.php');
+        echo "<script>alert('criminal info added Successfully');</script>";
+        header('location:add-criminal.php');
     }
 }
 ?>
@@ -122,16 +122,16 @@ if (isset($_POST['submit'])) {
                                                         </label>
                                                         <select name="policeid" class="form-control" required="true">
                                                             <option value="">Status Of Investigation</option>
-                                                            
-                                                                <option value="ongoing">
-                                                                    ongoing
-                                                                </option>
-                                                                <option value="completed">
-                                                                    completed
-                                                                </option>
-                                                                <option value="pending">
-                                                                    pending
-                                                                </option>
+
+                                                            <option value="ongoing">
+                                                                ongoing
+                                                            </option>
+                                                            <option value="completed">
+                                                                completed
+                                                            </option>
+                                                            <option value="pending">
+                                                                pending
+                                                            </option>
 
                                                         </select>
                                                     </div>
