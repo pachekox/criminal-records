@@ -57,11 +57,34 @@
 								<span class="title"> Manage Criminals </span>
 							</a>
 						</li>
+						
+
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:void(0)">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-user"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Cases </span><i class="icon-arrow"></i>
+							</div>
+						</div>
+					</a>
+					<ul class="sub-menu">
+
+						
 						<li>
 							<a href="add-case.php">
 								<span class="title"> Add case </span>
 							</a>
 						</li>
+						<li>
+										<a href="cases.php">
+											<span class="title">View Cases </span>
+										</a>
+									</li>
 
 					</ul>
 				</li>
