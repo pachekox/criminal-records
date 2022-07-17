@@ -57,6 +57,11 @@
 											<span class="title"> Manage Criminals </span>
 										</a>
 									</li>
+									<li>
+										<a href="add-case.php">
+											<span class="title"> Add case </span>
+										</a>
+									</li>
 									
 								</ul>
 								</li>
