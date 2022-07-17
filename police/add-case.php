@@ -6,17 +6,18 @@ include('include/checklogin.php');
 check_login();
 
 if (isset($_POST['submit'])) {
-    
+
     $criminalID = $_POST['criminalid'];
     $caseDescription = $_POST['caseDescription'];
     $policeID = $_POST['policeID'];
+    $lawyerID = $_POST['lawyerid'];
     $status = $_POST['status'];
     $cid = $_POST['cid'];
-    
-    $sql = mysqli_query($con, "insert into cases(criminalID,caseDescription,investigationStatus,policeID,cid) values('$criminalID','$caseDescription','$status','$policeID','$cid')");
+
+    $sql = mysqli_query($con, "insert into cases(criminalID,caseDescription,investigationStatus,policeID,cid,lawyer_id) values('$criminalID','$caseDescription','$status','$policeID','$cid','$lawyerID')");
     if ($sql) {
-        echo "<script>alert('Patient info added Successfully');</script>";
-        header('location:add-patient.php');
+        echo "<script>alert('criminal info added Successfully');</script>";
+        header('location:add-criminal.php');
     }
 }
 ?>
@@ -24,7 +25,7 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 
 <head>
-    <title>Admin | Add Case</title>
+    <title>Police | Add Case</title>
 
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -70,7 +71,7 @@ if (isset($_POST['submit'])) {
                     <section id="page-title">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h1 class="mainTitle">Admin |Add case</h1>
+                                <h1 class="mainTitle">Police |Add case</h1>
                             </div>
                             <ol class="breadcrumb">
                                 <li>
@@ -122,16 +123,16 @@ if (isset($_POST['submit'])) {
                                                         </label>
                                                         <select name="policeid" class="form-control" required="true">
                                                             <option value="">Status Of Investigation</option>
-                                                            
-                                                                <option value="ongoing">
-                                                                    ongoing
-                                                                </option>
-                                                                <option value="completed">
-                                                                    completed
-                                                                </option>
-                                                                <option value="pending">
-                                                                    pending
-                                                                </option>
+
+                                                            <option value="ongoing">
+                                                                ongoing
+                                                            </option>
+                                                            <option value="completed">
+                                                                completed
+                                                            </option>
+                                                            <option value="pending">
+                                                                pending
+                                                            </option>
 
                                                         </select>
                                                     </div>
@@ -147,6 +148,22 @@ if (isset($_POST['submit'])) {
                                                             ?>
                                                                 <option value="<?php echo htmlentities($row['id']); ?>">
                                                                     <?php echo htmlentities($row['policeName']); ?>
+                                                                </option>
+                                                            <?php } ?>
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="policepecialization">
+                                                            Assign Lawyer To Case
+                                                        </label>
+                                                        <select name="lawyerid" class="form-control" required="true">
+                                                            <option value="">Assign Lawyer</option>
+                                                            <?php $ret = mysqli_query($con, "select * from tbllawyer");
+                                                            while ($row = mysqli_fetch_array($ret)) {
+                                                            ?>
+                                                                <option value="<?php echo htmlentities($row['ID']); ?>">
+                                                                    <?php echo htmlentities($row['lawyername']); ?>
                                                                 </option>
                                                             <?php } ?>
 
