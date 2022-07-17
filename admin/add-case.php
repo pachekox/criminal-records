@@ -10,10 +10,11 @@ if (isset($_POST['submit'])) {
     $criminalID = $_POST['criminalid'];
     $caseDescription = $_POST['caseDescription'];
     $policeID = $_POST['policeID'];
+    $lawyerID = $_POST['lawyerid'];
     $status = $_POST['status'];
     $cid = $_POST['cid'];
 
-    $sql = mysqli_query($con, "insert into cases(criminalID,caseDescription,investigationStatus,policeID,cid) values('$criminalID','$caseDescription','$status','$policeID','$cid')");
+    $sql = mysqli_query($con, "insert into cases(criminalID,caseDescription,investigationStatus,policeID,cid,lawyer_id) values('$criminalID','$caseDescription','$status','$policeID','$cid','$lawyerID')");
     if ($sql) {
         echo "<script>alert('criminal info added Successfully');</script>";
         header('location:add-criminal.php');
@@ -147,6 +148,22 @@ if (isset($_POST['submit'])) {
                                                             ?>
                                                                 <option value="<?php echo htmlentities($row['id']); ?>">
                                                                     <?php echo htmlentities($row['policeName']); ?>
+                                                                </option>
+                                                            <?php } ?>
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="policepecialization">
+                                                            Assign Lawyer To Case
+                                                        </label>
+                                                        <select name="lawyerid" class="form-control" required="true">
+                                                            <option value="">Assign Lawyer</option>
+                                                            <?php $ret = mysqli_query($con, "select * from tbllawyer");
+                                                            while ($row = mysqli_fetch_array($ret)) {
+                                                            ?>
+                                                                <option value="<?php echo htmlentities($row['ID']); ?>">
+                                                                    <?php echo htmlentities($row['lawyername']); ?>
                                                                 </option>
                                                             <?php } ?>
 
