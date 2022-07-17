@@ -120,6 +120,28 @@
 									
 								</ul>
 								</li>	
+								<li>
+					<a href="javascript:void(0)">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-user"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Lawyer </span><i class="icon-arrow"></i>
+							</div>
+						</div>
+					</a>
+					<ul class="sub-menu">
+
+						<li>
+							<a href="add-lawyer.php">
+								<span class="title"> Add lawyer</span>
+							</a>
+						</li>
+
+
+					</ul>
+				</li>
 
 
 
