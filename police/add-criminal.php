@@ -9,6 +9,7 @@ if(isset($_POST['submit']))
 {	
 	$docid=$_SESSION['id'];
 	$patname=$_POST['patname'];
+	$id=$_POST['id'];
 $patcontact=$_POST['patcontact'];
 $patemail=$_POST['patemail'];
 $gender=$_POST['gender'];
@@ -101,6 +102,12 @@ error:function (){}
 Criminal Name
 </label>
 <input type="text" name="patname" class="form-control"  placeholder="Enter Criminal Name" required="true">
+</div>
+<div class="form-group">
+<label for="doctorname">
+Criminal National ID
+</label>
+<input type="number" name="ID" class="form-control"  placeholder="Enter Criminal National ID" required="true">
 </div>
 <div class="form-group">
 <label for="fess">

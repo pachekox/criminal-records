@@ -15,11 +15,11 @@ if(isset($_POST['submit']))
 	$pataddress=$_POST['pataddress'];
 	$patage=$_POST['patage'];
 	$medhis=$_POST['medhis'];
-	$sql=mysqli_query($con,"insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,PatientAdd,PatientAge,PatientMedhis) values('$docid','$patname','$patcontact','$patemail','$gender','$pataddress','$patage','$medhis')");
+	$sql=mysqli_query($con,"insert into tblcriminal(Docid,criminalName,criminalContno,criminalEmail,criminalGender,criminalAdd,criminalAge,criminalMedhis) values('$docid','$patname','$patcontact','$patemail','$gender','$pataddress','$patage','$medhis')");
 	if($sql)
 	{
-	echo "<script>alert('Patient info added Successfully');</script>";
-	header('location:add-patient.php');
+	echo "<script>alert('criminal info added Successfully');</script>";
+	header('location:add-criminal.php');
 
 }
 }
