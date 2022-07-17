@@ -8,7 +8,7 @@ check_login();
 if (isset($_POST['submit'])) {
 
 	$patname = $_POST['patname'];
-	$id = $_POST['id'];
+	$id = $_POST['ID'];
 	$patcontact = $_POST['patcontact'];
 	$patemail = $_POST['patemail'];
 	$gender = $_POST['gender'];
