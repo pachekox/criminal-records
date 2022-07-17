@@ -137,6 +137,9 @@
 							<a href="add-lawyer.php">
 								<span class="title"> Add lawyer</span>
 							</a>
+							<a href="manage-lawyers.php">
+								<span class="title"> Manage lawyers</span>
+							</a>
 						</li>
 
 
