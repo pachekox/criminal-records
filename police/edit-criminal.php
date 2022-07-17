@@ -15,11 +15,11 @@ $gender=$_POST['gender'];
 $pataddress=$_POST['pataddress'];
 $patage=$_POST['patage'];
 $medhis=$_POST['medhis'];
-$sql=mysqli_query($con,"update tblpatient set PatientName='$patname',PatientContno='$patcontact',PatientEmail='$patemail',PatientGender='$gender',PatientAdd='$pataddress',PatientAge='$patage',PatientMedhis='$medhis' where ID='$eid'");
+$sql=mysqli_query($con,"update tblcriminal set criminalName='$patname',criminalContno='$patcontact',criminalEmail='$patemail',criminalGender='$gender',criminalAdd='$pataddress',criminalAge='$patage',criminalMedhis='$medhis' where ID='$eid'");
 if($sql)
 {
-echo "<script>alert('Patient info updated Successfully');</script>";
-header('location:manage-patient.php');
+echo "<script>alert('criminal info updated Successfully');</script>";
+header('location:manage-criminal.php');
 
 }
 }
@@ -27,7 +27,7 @@ header('location:manage-patient.php');
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>police | Add Patient</title>
+		<title>police | Edit criminal</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -58,14 +58,14 @@ header('location:manage-patient.php');
 <section id="page-title">
 <div class="row">
 <div class="col-sm-8">
-<h1 class="mainTitle">Patient | Add Patient</h1>
+<h1 class="mainTitle">criminal | Edit criminal</h1>
 </div>
 <ol class="breadcrumb">
 <li>
-<span>Patient</span>
+<span>criminal</span>
 </li>
 <li class="active">
-<span>Add Patient</span>
+<span>Edit criminal</span>
 </li>
 </ol>
 </div>
@@ -77,34 +77,34 @@ header('location:manage-patient.php');
 <div class="col-lg-8 col-md-12">
 <div class="panel panel-white">
 <div class="panel-heading">
-<h5 class="panel-title">Add Patient</h5>
+<h5 class="panel-title">Edit criminal</h5>
 </div>
 <div class="panel-body">
 <form role="form" name="" method="post">
 <?php
  $eid=$_GET['editid'];
-$ret=mysqli_query($con,"select * from tblpatient where ID='$eid'");
+$ret=mysqli_query($con,"select * from tblcriminal where ID='$eid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 
 ?>
 <div class="form-group">
 <label for="policename">
-Patient Name
+criminal Name
 </label>
-<input type="text" name="patname" class="form-control"  value="<?php  echo $row['PatientName'];?>" required="true">
+<input type="text" name="patname" class="form-control"  value="<?php  echo $row['criminalName'];?>" required="true">
 </div>
 <div class="form-group">
 <label for="fess">
- Patient Contact no
+ criminal Contact no
 </label>
-<input type="text" name="patcontact" class="form-control"  value="<?php  echo $row['PatientContno'];?>" required="true" maxlength="10" pattern="[0-9]+">
+<input type="text" name="patcontact" class="form-control"  value="<?php  echo $row['criminalContno'];?>" required="true" maxlength="10" pattern="[0-9]+">
 </div>
 <div class="form-group">
 <label for="fess">
-Patient Email
+criminal Email
 </label>
-<input type="email" id="patemail" name="patemail" class="form-control"  value="<?php  echo $row['PatientEmail'];?>" readonly='true'>
+<input type="email" id="patemail" name="patemail" class="form-control"  value="<?php  echo $row['criminalEmail'];?>" readonly='true'>
 <span id="email-availability-status"></span>
 </div>
 <div class="form-group">
@@ -121,21 +121,21 @@ Patient Email
             </div>
 <div class="form-group">
 <label for="address">
-Patient Address
+criminal Address
 </label>
-<textarea name="pataddress" class="form-control" required="true"><?php  echo $row['PatientAdd'];?></textarea>
+<textarea name="pataddress" class="form-control" required="true"><?php  echo $row['criminalAdd'];?></textarea>
 </div>
 <div class="form-group">
 <label for="fess">
- Patient Age
+ criminal Age
 </label>
-<input type="text" name="patage" class="form-control"  value="<?php  echo $row['PatientAge'];?>" required="true">
+<input type="text" name="patage" class="form-control"  value="<?php  echo $row['criminalAge'];?>" required="true">
 </div>
 <div class="form-group">
 <label for="fess">
  Medical History
 </label>
-<textarea type="text" name="medhis" class="form-control"  placeholder="Enter Patient Medical History(if any)" required="true"><?php  echo $row['PatientMedhis'];?></textarea>
+<textarea type="text" name="medhis" class="form-control"  placeholder="Enter criminal Medical History(if any)" required="true"><?php  echo $row['criminalMedhis'];?></textarea>
 </div>	
 <div class="form-group">
 <label for="fess">
