@@ -4,19 +4,19 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-$did=intval($_GET['id']);// get doctor id
+$did=intval($_GET['id']);// get police id
 if(isset($_POST['submit']))
 {
-	$docspecialization=$_POST['Doctorspecialization'];
+	$docspecialization=$_POST['policespecialization'];
 $docname=$_POST['docname'];
 $docaddress=$_POST['clinicaddress'];
 $docfees=$_POST['docfees'];
 $doccontactno=$_POST['doccontact'];
 $docemail=$_POST['docemail'];
-$sql=mysqli_query($con,"Update doctors set specilization='$docspecialization',doctorName='$docname',address='$docaddress',docFees='$docfees',contactno='$doccontactno',docEmail='$docemail' where id='$did'");
+$sql=mysqli_query($con,"Update police set specilization='$docspecialization',policeName='$docname',address='$docaddress',docFees='$docfees',contactno='$doccontactno',docEmail='$docemail' where id='$did'");
 if($sql)
 {
-$msg="Doctor Details updated Successfully";
+$msg="police Details updated Successfully";
 
 }
 }
@@ -84,11 +84,11 @@ $msg="Doctor Details updated Successfully";
 													<h5 class="panel-title">Edit Police Officer info</h5>
 												</div>
 												<div class="panel-body">
-									<?php $sql=mysqli_query($con,"select * from doctors where id='$did'");
+									<?php $sql=mysqli_query($con,"select * from polices where id='$did'");
 while($data=mysqli_fetch_array($sql))
 {
 ?>
-<h4><?php echo htmlentities($data['doctorName']);?>'s Profile</h4>
+<h4><?php echo htmlentities($data['policeName']);?>'s Profile</h4>
 <p><b>Profile Reg. Date: </b><?php echo htmlentities($data['creationDate']);?></p>
 <?php if($data['updationDate']){?>
 <p><b>Profile Last Updation Date: </b><?php echo htmlentities($data['updationDate']);?></p>
@@ -96,13 +96,13 @@ while($data=mysqli_fetch_array($sql))
 <hr />
 													<form role="form" name="adddoc" method="post" onSubmit="return valid();">
 														<div class="form-group">
-															<label for="DoctorSpecialization">
+															<label for="policeSpecialization">
 																Police Officer Specialization
 															</label>
-							<select name="Doctorspecialization" class="form-control" required="required">
+							<select name="policespecialization" class="form-control" required="required">
 					<option value="<?php echo htmlentities($data['specilization']);?>">
 					<?php echo htmlentities($data['specilization']);?></option>
-<?php $ret=mysqli_query($con,"select * from doctorspecilization");
+<?php $ret=mysqli_query($con,"select * from policespecilization");
 while($row=mysqli_fetch_array($ret))
 {
 ?>
@@ -115,10 +115,10 @@ while($row=mysqli_fetch_array($ret))
 														</div>
 
 <div class="form-group">
-															<label for="doctorname">
+															<label for="policename">
 																 Police Officer Name
 															</label>
-	<input type="text" name="docname" class="form-control" value="<?php echo htmlentities($data['doctorName']);?>" >
+	<input type="text" name="docname" class="form-control" value="<?php echo htmlentities($data['policeName']);?>" >
 														</div>
 
 
