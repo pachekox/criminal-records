@@ -75,22 +75,22 @@ $tdate=$_POST['todate'];
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"select * from tblpatient where date(CreationDate) between '$fdate' and '$tdate'");
+$sql=mysqli_query($con,"select * from tblcriminal where date(CreationDate) between '$fdate' and '$tdate'");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
 ?>
 <tr>
 <td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td><?php echo $row['PatientContno'];?></td>
-<td><?php echo $row['PatientGender'];?></td>
+<td class="hidden-xs"><?php echo $row['criminalName'];?></td>
+<td><?php echo $row['criminalContno'];?></td>
+<td><?php echo $row['criminalGender'];?></td>
 <td><?php echo $row['CreationDate'];?></td>
 <td><?php echo $row['UpdationDate'];?>
 </td>
 <td>
 
-<a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
+<a href="view-criminals.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
 
 </td>
 </tr>
