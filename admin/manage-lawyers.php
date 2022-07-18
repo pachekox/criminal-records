@@ -85,7 +85,7 @@ if (isset($_GET['del'])) {
 										?>
 											<tr>
 												<td class="center"><?php echo $cnt; ?>.</td>
-												<td class="hidden-xs"><?php echo $row['lawyerName']; ?></td>
+												<td class="hidden-xs"><?php echo $row['lawyername']; ?></td>
 												<td><?php echo $row['lawyerContno']; ?></td>
 												<td><?php echo $row['lawyerGender']; ?></td>
 												<td><?php echo $row['datecreated']; ?></td>
