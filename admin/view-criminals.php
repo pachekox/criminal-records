@@ -105,8 +105,11 @@ if (isset($_POST['submit'])) {
 										</tr>
 										<tr>
 
-											<th>Crime History</th>
-											<td><?php echo $row['criminalMedhis']; ?></td>
+											<th>Number of crimes</th>
+											<td><?php 
+											$result = mysqli_query($con, "SELECT  COUNT   FROM cases WHERE criminalID='$vid'");
+											echo $result;
+											?></td>
 											<th>Criminals Reg Date</th>
 											<td><?php echo $row['CreationDate']; ?></td>
 										</tr>
@@ -115,7 +118,7 @@ if (isset($_POST['submit'])) {
 									</table>
 									<?php
 
-									$ret = mysqli_query($con, "select * from tblmedicalhistory  where criminalID='$vid'");
+									$ret = mysqli_query($con, "select * from cases  where criminalID='$vid'");
 
 
 
@@ -126,24 +129,22 @@ if (isset($_POST['submit'])) {
 										</tr>
 										<tr>
 											<th>#</th>
-											<th>Blood Pressure</th>
-											<th>Weight</th>
-											<th>Blood Sugar</th>
-											<th>Body Temprature</th>
-											<th>Crime Prescription</th>
-											<th>Register Date</th>
+											<th>Case Description</th>
+											<th>Date Filed</th>
+											<th>Investigation Status</th>
+											
+										
+											
 										</tr>
 										<?php
 										while ($row = mysqli_fetch_array($ret)) {
 										?>
 											<tr>
 												<td><?php echo $cnt; ?></td>
-												<td><?php echo $row['BloodPressure']; ?></td>
-												<td><?php echo $row['Weight']; ?></td>
-												<td><?php echo $row['BloodSugar']; ?></td>
-												<td><?php echo $row['Temperature']; ?></td>
-												<td><?php echo $row['MedicalPres']; ?></td>
-												<td><?php echo $row['CreationDate']; ?></td>
+												<td><?php echo $row['CaseDescription']; ?></td>
+												<td><?php echo $row['DateFiled']; ?></td>
+												<td><?php echo $row['investigationStatus']; ?></td>
+										
 											</tr>
 										<?php $cnt = $cnt + 1;
 										} ?>
