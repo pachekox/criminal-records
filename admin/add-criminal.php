@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
 	$sql = mysqli_query($con, "insert into tblcriminal(ID,criminalName,criminalContno,criminalEmail,criminalGender,criminalAdd,criminalAge) values('$id','$patname','$patcontact','$patemail','$gender','$pataddress','$patage')");
 	if ($sql) {
 		echo "<script>alert('criminal info added Successfully');</script>";
-		header('location:add-criminal.php');
+		header('location:add-case.php');
 	}
 }
 ?>
