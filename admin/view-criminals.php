@@ -14,10 +14,10 @@ if (isset($_POST['submit'])) {
 	$pres = $_POST['pres'];
 
 
-	$query .= mysqli_query($con, "insert   tblmedicalhistory(PatientID,BloodPressure,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$bp','$bs','$weight','$temp','$pres')");
+	$query .= mysqli_query($con, "insert   tblmedicalhistory(criminalID,BloodPressure,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$bp','$bs','$weight','$temp','$pres')");
 	if ($query) {
 		echo '<script>alert("Medicle history has been added.")</script>';
-		echo "<script>window.location.href ='manage-patient.php'</script>";
+		echo "<script>window.location.href ='manage-criminal.php'</script>";
 	} else {
 		echo '<script>alert("Something Went Wrong. Please try again")</script>';
 	}
@@ -57,11 +57,11 @@ if (isset($_POST['submit'])) {
 					<section id="page-title">
 						<div class="row">
 							<div class="col-sm-8">
-								<h1 class="mainTitle">Reception | Manage Criminals</h1>
+								<h1 class="mainTitle">Admin | Manage Criminals</h1>
 							</div>
 							<ol class="breadcrumb">
 								<li>
-									<span>Doctor</span>
+									<span>Admin</span>
 								</li>
 								<li class="active">
 									<span>Manage Criminals</span>
@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
 								<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Criminals</span></h5>
 								<?php
 								$vid = $_GET['viewid'];
-								$ret = mysqli_query($con, "select * from tblpatient where ID='$vid'");
+								$ret = mysqli_query($con, "select * from tblcriminal where ID='$vid'");
 								$cnt = 1;
 								while ($row = mysqli_fetch_array($ret)) {
 								?>
@@ -87,26 +87,26 @@ if (isset($_POST['submit'])) {
 
 										<tr>
 											<th scope>Criminal Name</th>
-											<td><?php echo $row['PatientName']; ?></td>
+											<td><?php echo $row['criminalName']; ?></td>
 											<th scope>Criminal Email</th>
-											<td><?php echo $row['PatientEmail']; ?></td>
+											<td><?php echo $row['criminalEmail']; ?></td>
 										</tr>
 										<tr>
 											<th scope>Criminal Mobile Number</th>
-											<td><?php echo $row['PatientContno']; ?></td>
+											<td><?php echo $row['criminalContno']; ?></td>
 											<th>Criminal Address</th>
-											<td><?php echo $row['PatientAdd']; ?></td>
+											<td><?php echo $row['criminalAdd']; ?></td>
 										</tr>
 										<tr>
 											<th>Criminal Gender</th>
-											<td><?php echo $row['PatientGender']; ?></td>
+											<td><?php echo $row['criminalGender']; ?></td>
 											<th>Criminal Age</th>
-											<td><?php echo $row['PatientAge']; ?></td>
+											<td><?php echo $row['criminalAge']; ?></td>
 										</tr>
 										<tr>
 
 											<th>Crime History</th>
-											<td><?php echo $row['PatientMedhis']; ?></td>
+											<td><?php echo $row['criminalMedhis']; ?></td>
 											<th>Criminals Reg Date</th>
 											<td><?php echo $row['CreationDate']; ?></td>
 										</tr>
@@ -115,7 +115,7 @@ if (isset($_POST['submit'])) {
 									</table>
 									<?php
 
-									$ret = mysqli_query($con, "select * from tblmedicalhistory  where PatientID='$vid'");
+									$ret = mysqli_query($con, "select * from tblmedicalhistory  where criminalID='$vid'");
 
 
 
