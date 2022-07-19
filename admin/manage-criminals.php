@@ -73,17 +73,17 @@ if (isset($_GET['del'])) {
 											<th>Gender </th>
 											<th> Date Added </th>
 											<th>Updated </th>
-											<th>ID No.</th>
-											<th>Investigation Status</th>
+											
 											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
 										<?php
 
-										$sql = mysqli_query($con, "select * from tblcriminal INNER JOIN cases ON tblcriminal.ID=cases.criminalID");
+										$sql = mysqli_query($con, "select * from tblcriminal ");
+
 										$cnt = 1;
-										while ($row = mysqli_fetch_array($sql)) {
+										while ($row = mysqli_fetch_array($sql) ) {
 										?>
 											<tr>
 												<td class="center"><?php echo $cnt; ?>.</td>
@@ -92,8 +92,7 @@ if (isset($_GET['del'])) {
 												<td><?php echo $row['criminalGender']; ?></td>
 												<td><?php echo $row['CreationDate']; ?></td>
 												<td><?php echo $row['UpdationDate']; ?></td>
-												<td><?php echo $row['IDNumber']; ?></td>
-												<td><?php echo $row['investigationStatus']; ?></td>
+												
 												<td>
 
 													<a href="view-criminals.php?viewid=<?php echo $row['ID']; ?>"><i class="fa fa-eye"></i></a>
